@@ -4,13 +4,38 @@
 <head>
   <title>{{ title }}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    .tabs { margin-top: 20px; }
+    .tab-buttons { display: flex; flex-wrap: wrap; }
+    .tab-buttons button {
+      margin: 2px;
+      padding: 8px 16px;
+      cursor: pointer;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      border-bottom: none;
+      font-size: 14px;
+    }
+    .tab-buttons button.active {
+      background-color: #fff;
+      font-weight: bold;
+    }
+    .tab-content {
+      display: none;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <header><div class="navbar">F1 Competition Dashboard</div></header>
   <div class="search-box">
     <input type="text" id="menuSearch" placeholder="Search menu...">
   </div>
-  <div class="sidebar">{{ sidebar|safe }}</div>
+  <div class="sidebar"><a href="/">🏠 Home</a>{{ sidebar|safe }}</div>
   <div class="main-content">
     <h1>{{ title }}</h1>
     <p>{{ description }}</p>
@@ -26,21 +51,48 @@
           </object>
         </div>
       {% elif tableau is iterable %}
-        {% for tlink in tableau %}
-        <div class='tableauPlaceholder'>
-          <object class='tableauViz' width='100%' height='600'>
-            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
-            <param name='embed_code_version' value='3'/>
-            <param name='name' value='{{ tlink }}'/>
-            <param name='tabs' value='no'/>
-            <param name='toolbar' value='yes'/>
-          </object>
+        <div class="tabs">
+          <div class="tab-buttons">
+            {% for t in tableau %}
+              <button class="tab-btn" data-tab="tab{{ loop.index0 }}">{{ t.name if t.name else "Chart " ~ loop.index }}</button>
+            {% endfor %}
+          </div>
+          {% for t in tableau %}
+            <div class="tab-content" id="tab{{ loop.index0 }}">
+              <div class='tableauPlaceholder'>
+                <object class='tableauViz' width='100%' height='600'>
+                  <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+                  <param name='embed_code_version' value='3'/>
+                  <param name='name' value='{{ t.link }}'/>
+                  <param name='tabs' value='no'/>
+                  <param name='toolbar' value='yes'/>
+                </object>
+              </div>
+            </div>
+          {% endfor %}
         </div>
-        {% endfor %}
       {% endif %}
     {% endif %}
   </div>
   <script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
   <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const buttons = document.querySelectorAll(".tab-btn");
+      const contents = document.querySelectorAll(".tab-content");
+      if (buttons.length > 0) {
+        buttons[0].classList.add("active");
+        contents[0].classList.add("active");
+        buttons.forEach(btn => {
+          btn.addEventListener("click", function () {
+            buttons.forEach(b => b.classList.remove("active"));
+            contents.forEach(c => c.classList.remove("active"));
+            this.classList.add("active");
+            document.getElementById(this.dataset.tab).classList.add("active");
+          });
+        });
+      }
+    });
+  </script>
 </body>
 </html>

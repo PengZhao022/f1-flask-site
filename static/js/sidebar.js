@@ -1,5 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
+  // Expand/collapse toggles
   document.querySelectorAll(".collapsible").forEach(function (el) {
     if (!el.querySelector("span.arrow")) {
       const arrow = document.createElement("span");
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Highlight active link
   const path = window.location.pathname;
   const links = document.querySelectorAll(".sidebar a");
   links.forEach(link => {
@@ -38,12 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Filter sidebar items with search
   document.getElementById("menuSearch").addEventListener("input", function () {
     const keyword = this.value.toLowerCase();
     document.querySelectorAll(".sidebar a").forEach(function (link) {
       const text = link.innerText.toLowerCase();
-      const match = text.includes(keyword);
-      link.style.display = match ? "block" : "none";
+      link.style.display = text.includes(keyword) ? "block" : "none";
     });
   });
 });
