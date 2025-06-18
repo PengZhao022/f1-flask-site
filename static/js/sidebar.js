@@ -28,6 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
       while (node && node.classList) {
         if (node.classList.contains("content")) {
           node.style.display = "block";
+          const parentCollapsible = node.previousElementSibling;
+          if (parentCollapsible && parentCollapsible.querySelector("span.arrow")) {
+            parentCollapsible.querySelector("span.arrow").innerText = "▼ ";
+          }
         }
         node = node.parentElement;
       }
