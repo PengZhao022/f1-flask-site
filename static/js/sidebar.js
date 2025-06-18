@@ -1,6 +1,5 @@
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Expand/collapse toggles
   document.querySelectorAll(".collapsible").forEach(function (el) {
     if (!el.querySelector("span.arrow")) {
       const arrow = document.createElement("span");
@@ -20,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Highlight active link
+  // Highlight active link and expand its parents
   const path = window.location.pathname;
   const links = document.querySelectorAll(".sidebar a");
   links.forEach(link => {
@@ -40,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Filter sidebar items with search
+  // Search menu
   document.getElementById("menuSearch").addEventListener("input", function () {
     const keyword = this.value.toLowerCase();
     document.querySelectorAll(".sidebar a").forEach(function (link) {
