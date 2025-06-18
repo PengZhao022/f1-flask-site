@@ -1,5 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
+  // 初始化所有 collapsible 区块
   document.querySelectorAll(".collapsible").forEach(function (el) {
     if (!el.querySelector("span.arrow")) {
       const arrow = document.createElement("span");
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Highlight current path and expand parents
+  // 高亮当前路径，展开其所有父 collapsible
   const path = window.location.pathname;
   const links = document.querySelectorAll(".sidebar a");
   links.forEach(link => {
@@ -40,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Search
+  // 搜索功能
   document.getElementById("menuSearch").addEventListener("input", function () {
     const keyword = this.value.toLowerCase();
     document.querySelectorAll(".sidebar a").forEach(function (link) {
