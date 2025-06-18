@@ -25,3 +25,5 @@ ul.content { display: none; list-style-type: none; padding-left: 15px; }
   padding: 6px 0 6px 20px;
   margin: 3px 0;
 }
+
+.content { display: none; padding-left: 12px; }

@@ -10,43 +10,9 @@
 </head>
 <body>
 <header><div class='navbar'>F1 Interactive Dashboard</div></header>
-
 <div class="sidebar">
-  <input type="text" id="menuSearch" placeholder="Search..." />
-  <div class="collapsible">About</div>
-  <div class="content">
-    <a href="/page/about/about-f1">About F1</a>
-    <a href="/page/about/purpose">Purpose</a>
-    <a href="/page/about/team-members">Team Members</a>
-  </div>
-  <div class="collapsible">Dashboards</div>
-  <div class="content">
-    <div class="collapsible">Competition</div>
-    <div class="content">
-      <a href="/page/dashboards/competition/trend-line">Trend Line</a>
-      <a href="/page/dashboards/competition/across-tracks">Across Tracks</a>
-      <a href="/page/dashboards/competition/car-evolution-rules">Car Evolution Rules</a>
-    </div>
-    <div class="collapsible">Drivers</div>
-    <div class="content">
-      <a href="/page/dashboards/drivers/driver-1">Driver 1</a>
-      <a href="/page/dashboards/drivers/driver-2">Driver 2</a>
-      <a href="/page/dashboards/drivers/driver-3">Driver 3</a>
-    </div>
-    <div class="collapsible">Qualifying</div>
-    <div class="content">
-      <a href="/page/dashboards/qualifying/qualifying-vs-final">Qualifying vs Final</a>
-      <a href="/page/dashboards/qualifying/grid-size-by-decade">Grid Size by Decade</a>
-      <a href="/page/dashboards/qualifying/avg-final-by-qualifying">Avg Final by Qualifying</a>
-    </div>
-  </div>
-  <div class="collapsible">Resources</div>
-  <div class="content">
-    <a href="/page/resources/documentation">Documentation</a>
-    <a href="/page/resources/github-link">GitHub Link</a>
-  </div>
+    {% include 'sidebar.html' %}
 </div>
-
 <div class="main" style="margin-left: 260px; padding: 30px;">
     {% block content %}{% endblock %}
 </div>
