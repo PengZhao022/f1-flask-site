@@ -8,18 +8,19 @@ document.addEventListener("DOMContentLoaded", function () {
       el.prepend(arrow);
     }
 
-    el.addEventListener("click", function () {
+    el.addEventListener("click", function (e) {
       const content = this.nextElementSibling;
       if (content && content.classList.contains("content")) {
         const expanded = content.style.display === "block";
         content.style.display = expanded ? "none" : "block";
         const arrow = this.querySelector("span.arrow");
         if (arrow) arrow.innerText = expanded ? "▶ " : "▼ ";
+        e.stopPropagation();
       }
     });
   });
 
-  // Highlight active link and expand its parents
+  // Highlight current path and expand parents
   const path = window.location.pathname;
   const links = document.querySelectorAll(".sidebar a");
   links.forEach(link => {
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Search menu
+  // Search
   document.getElementById("menuSearch").addEventListener("input", function () {
     const keyword = this.value.toLowerCase();
     document.querySelectorAll(".sidebar a").forEach(function (link) {
