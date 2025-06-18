@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+  <button class="theme-toggle" id="themeToggle">Toggle</button>
   <header><h1>F1 Competition Dashboard</h1></header>
   <div class="container">
     {{ sidebar|safe }}
@@ -15,13 +16,13 @@
         <object class='tableauViz' width='100%' height='600'>
           <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
           <param name='embed_code_version' value='3'/>
-          <param name='name' value='yourworkbook/yourdashboard'/>
+          <param name='name' value='defaultworkbook/defaultdash'/>
           <param name='tabs' value='no'/>
           <param name='toolbar' value='yes'/>
         </object>
       </div>
     </div>
   </div>
-
-<script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
-</body></html>
+  <script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
+</body>
+</html>

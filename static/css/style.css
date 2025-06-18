@@ -44,3 +44,39 @@ header { background: #003366; color: white; padding: 15px; text-align: center; }
     width: 100%;
   }
 }
+
+body { opacity: 0; }
+#sidebarSearch {
+  width: 90%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+body.light-mode {
+  background: #ffffff;
+  color: #000000;
+}
+body.dark-mode {
+  background: #1e1e1e;
+  color: #dddddd;
+}
+body.dark-mode .sidebar {
+  background: #2c2c2c;
+}
+body.dark-mode .sidebar a {
+  color: #dddddd;
+}
+body.dark-mode .sidebar a.active {
+  background-color: #444;
+}
+.theme-toggle {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  padding: 5px 10px;
+  background: #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
