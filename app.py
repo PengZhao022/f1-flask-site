@@ -59,3 +59,12 @@ def render_page(section, sub=None, page=None):
     path = f"/{section}/{sub}/{page}" if sub else f"/{section}/{page}"
     content = find_content(path)
     return render_template("page.html", title=page.replace('-', ' ').title(), sidebar=generate_sidebar(), description=content["description"], tableau=content["tableau"])
+
+
+@app.route('/page/<path:page_path>')
+def dynamic_page(page_path):
+    parts = page_path.strip('/').split('/')
+    section = parts[0].lower()
+    page_title, icon_class = icon_map.get(section, ("Untitled", "fa-file"))
+    template_file = f"content/{page_path}.html"
+    return render_template("page.html", page_title=page_title, icon_class=icon_class, path=page_path, content_template=template_file)
