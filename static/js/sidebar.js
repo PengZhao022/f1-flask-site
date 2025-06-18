@@ -1,9 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Restore expanded states from localStorage
   const storedExpanded = JSON.parse(localStorage.getItem("expandedMenus") || "[]");
 
-  // 初始化所有 collapsible 区块
   document.querySelectorAll(".collapsible").forEach(function (el, index) {
     if (!el.querySelector("span.arrow")) {
       const arrow = document.createElement("span");
@@ -22,12 +20,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     el.addEventListener("click", function (e) {
       if (!content || !content.classList.contains("content")) return;
+      const arrow = this.querySelector("span.arrow");
       const currentlyOpen = content.style.display === "block";
-      content.style.display = currentlyOpen ? "none" : "block";
-      const arrow = el.querySelector("span.arrow");
-      if (arrow) arrow.innerText = currentlyOpen ? "▶ " : "▼ ";
 
-      // update localStorage
+      if (currentlyOpen) {
+        content.style.display = "none";
+        if (arrow) arrow.innerText = "▶ ";
+      } else {
+        content.style.display = "block";
+        if (arrow) arrow.innerText = "▼ ";
+      }
+
       const currentExpanded = new Set(JSON.parse(localStorage.getItem("expandedMenus") || "[]"));
       if (currentlyOpen) {
         currentExpanded.delete(index);
@@ -40,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // 高亮当前链接，展开其所有父 collapsible
   const path = window.location.pathname;
   const links = document.querySelectorAll(".sidebar a");
   links.forEach(link => {
@@ -60,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // 搜索功能
   document.getElementById("menuSearch").addEventListener("input", function () {
     const keyword = this.value.toLowerCase();
     document.querySelectorAll(".sidebar a").forEach(function (link) {
