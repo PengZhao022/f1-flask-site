@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const expanded = new Set(JSON.parse(localStorage.getItem("expandedMenus") || "[]"));
 
   document.querySelectorAll(".collapsible").forEach(function (el, index) {
+    const content = el.nextElementSibling;
+
     if (!el.querySelector("span.arrow")) {
       const arrow = document.createElement("span");
       arrow.className = "arrow";
@@ -10,20 +12,15 @@ document.addEventListener("DOMContentLoaded", function () {
       el.prepend(arrow);
     }
 
-    const content = el.nextElementSibling;
     if (content && content.classList.contains("content")) {
-      if (expanded.has(index)) {
-        content.style.display = "block";
-        el.querySelector("span.arrow").innerText = "▼ ";
-      } else {
-        content.style.display = "none";
-        el.querySelector("span.arrow").innerText = "▶ ";
-      }
+      content.style.display = expanded.has(index) ? "block" : "none";
+      el.querySelector("span.arrow").innerText = expanded.has(index) ? "▼ " : "▶ ";
 
       el.addEventListener("click", function (e) {
         const showing = content.style.display === "block";
         content.style.display = showing ? "none" : "block";
         el.querySelector("span.arrow").innerText = showing ? "▶ " : "▼ ";
+
         if (showing) {
           expanded.delete(index);
         } else {
@@ -35,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // 高亮当前链接并展开路径
+  // 自动展开当前页面路径
   const path = window.location.pathname;
   document.querySelectorAll(".sidebar a").forEach(function (link) {
     if (link.getAttribute("href") === path) {
@@ -44,10 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
       while (node && node.classList) {
         if (node.classList.contains("content")) {
           node.style.display = "block";
-          const prev = node.previousElementSibling;
-          if (prev && prev.querySelector(".arrow")) {
-            prev.querySelector(".arrow").innerText = "▼ ";
-          }
+          const arrow = node.previousElementSibling?.querySelector(".arrow");
+          if (arrow) arrow.innerText = "▼ ";
         }
         node = node.parentElement;
       }
@@ -55,11 +50,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // 搜索功能
-  document.getElementById("menuSearch").addEventListener("input", function () {
-    const keyword = this.value.toLowerCase();
-    document.querySelectorAll(".sidebar a").forEach(function (link) {
-      const text = link.innerText.toLowerCase();
-      link.style.display = text.includes(keyword) ? "block" : "none";
+  const search = document.getElementById("menuSearch");
+  if (search) {
+    search.addEventListener("input", function () {
+      const keyword = this.value.toLowerCase();
+      document.querySelectorAll(".sidebar a").forEach(function (link) {
+        const text = link.innerText.toLowerCase();
+        link.style.display = text.includes(keyword) ? "block" : "none";
+      });
     });
-  });
+  }
 });
