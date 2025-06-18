@@ -1,21 +1,14 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>F1 Dashboard</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-  <header><div class="navbar">F1 Competition Dashboard</div></header>
-  <div class="search-box">
-    <input type="text" id="menuSearch" placeholder="Search menu...">
-  </div>
-  <div class="sidebar"><a href="/">🏠 Home</a>{{ sidebar|safe }}</div>
-  <div class="main-content">
-    <h1>Welcome</h1>
-    <p>Text test</p>
-    <img src="{{ url_for('static', filename='img/f1_logo.svg') }}" width="200">
-  </div>
-  <script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
-</body>
-</html>
+{% extends 'layout.html' %}
+
+{% block title %}Overview - F1 Dashboard{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1><i class="fa fa-gauge-high"></i> Overview</h1>
+    <p class="description">This is the Overview page of the F1 interactive dashboard.</p>
+</div>
+<div class="page-body">
+    <p>Replace this section with the actual content.</p>
+</div>
+{% endblock %}
