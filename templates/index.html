@@ -6,6 +6,10 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+  <header><div class="navbar">F1 Competition Dashboard</div></header>
+  <div class="search-box">
+    <input type="text" id="menuSearch" placeholder="Search menu...">
+  </div>
   <div class="sidebar">{{ sidebar|safe }}</div>
   <div class="main-content">
     <h1>Welcome</h1>

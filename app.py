@@ -1,47 +1,46 @@
 
 from flask import Flask, render_template
+import json
+
 app = Flask(__name__)
 
-def get_sidebar():
-    return '''
-<span class="collapsible">About</span>
-<ul class="content">
-  <li><a href="/about/about-f1">About F1</a></li>
-  <li><a href="/about/purpose">Purpose</a></li>
-  <li><a href="/about/team">Team Members</a></li>
-</ul>
-<span class="collapsible">Dashboards</span>
-<ul class="content">
-  <li>
-    <span class="collapsible">Competition</span>
-    <ul class="content">
-      <li><a href="/dashboards/competition/trend-line">Trend Line</a></li>
-      <li><a href="/dashboards/competition/across-tracks">Across Tracks</a></li>
-      <li><a href="/dashboards/competition/car-evolution-rules">Car Evolution / Rules</a></li>
-    </ul>
-  </li>
-  <li>
-    <span class="collapsible">Qualifying</span>
-    <ul class="content">
-      <li><a href="/dashboards/qualifying/qualifying-vs-final">Qualifying vs Final</a></li>
-      <li><a href="/dashboards/qualifying/grid-size-by-decade">Grid Size by Decade</a></li>
-      <li><a href="/dashboards/qualifying/avg-final-by-qualifying">Avg Final by Qualifying</a></li>
-    </ul>
-  </li>
-</ul>
-<span class="collapsible">Resources</span>
-<ul class="content">
-  <li><a href="/resources/documentation">Documentation</a></li>
-  <li><a href="/resources/github-link">GitHub Link</a></li>
-</ul>
-'''
+with open("menu_config.json") as f:
+    MENU_CONFIG = json.load(f)
+
+def generate_sidebar():
+    html = ""
+    for section, items in MENU_CONFIG.items():
+        html += f'<span class="collapsible">{section}</span><ul class="content">'
+        for label, content in items.items():
+            if "path" in content:
+                html += f'<li><a href="{content["path"]}">{label}</a></li>'
+            else:
+                html += f'<li><span class="collapsible">{label}</span><ul class="content">'
+                for sublabel, subcontent in content.items():
+                    html += f'<li><a href="{subcontent["path"]}">{sublabel}</a></li>'
+                html += "</ul></li>"
+        html += "</ul>"
+    return html
+
+def find_content(path):
+    for section in MENU_CONFIG.values():
+        for label, content in section.items():
+            if isinstance(content, dict) and "path" in content:
+                if content["path"] == path:
+                    return content
+            elif isinstance(content, dict):
+                for subcontent in content.values():
+                    if subcontent["path"] == path:
+                        return subcontent
+    return {"description": "Not found", "tableau": ""}
 
 @app.route("/")
 def index():
-    return render_template("index.html", sidebar=get_sidebar())
+    return render_template("index.html", sidebar=generate_sidebar())
 
 @app.route("/<section>/<page>")
 @app.route("/<section>/<sub>/<page>")
 def render_page(section, sub=None, page=None):
-    path = f"{section}/{sub}/{page}" if sub else f"{section}/{page}"
-    return render_template("page.html", title=page.replace('-', ' ').title(), sidebar=get_sidebar(), description="Text test")
+    path = f"/{section}/{sub}/{page}" if sub else f"/{section}/{page}"
+    content = find_content(path)
+    return render_template("page.html", title=page.replace('-', ' ').title(), sidebar=generate_sidebar(), description=content["description"], tableau=content["tableau"])
