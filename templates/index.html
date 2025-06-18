@@ -2,18 +2,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>F1 Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div class="sidebar">
-        <span class="collapsible">Dashboards</span>
-        <ul class="content"><li><a href="#">Trend Line</a></li></ul>
-    </div>
-    <div class="main-content">
-        <h1>F1 Dashboard</h1>
-        <img src="{{ url_for('static', filename='img/f1_logo.svg') }}" width="200">
-    </div>
-    <script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
+  <div class="sidebar">{{ sidebar|safe }}</div>
+  <div class="main-content">
+    <h1>Welcome</h1>
+    <p>Text test</p>
+    <img src="{{ url_for('static', filename='img/f1_logo.svg') }}" width="200">
+  </div>
+  <script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
 </body>
 </html>
