@@ -9,10 +9,11 @@
     {% block head %}{% endblock %}
 </head>
 <body>
+<header><div class='navbar'>F1 Interactive Dashboard</div></header>
 <div class="sidebar">
     {% include 'sidebar.html' %}
 </div>
-<div class="main">
+<div class="main" style="margin-left: 260px; padding: 30px;">
     {% block content %}{% endblock %}
 </div>
 </body>

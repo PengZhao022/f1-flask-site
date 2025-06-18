@@ -8,3 +8,20 @@ ul.content { display: none; list-style-type: none; padding-left: 15px; }
 .navbar { background-color: #003366; color: white; padding: 12px; font-weight: bold; font-size: 20px; text-align: center; }
 .search-box { padding: 10px; }
 .search-box input { width: 90%; padding: 5px; border-radius: 5px; border: 1px solid #ccc; }
+
+
+/* 顶部导航栏样式 */
+.navbar {
+  background-color: #1e1e1e;
+  color: white;
+  padding: 12px 24px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* 修复菜单链接为垂直排列 */
+.sidebar a {
+  display: block;
+  padding: 6px 0 6px 20px;
+  margin: 3px 0;
+}
