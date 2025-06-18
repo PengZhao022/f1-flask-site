@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>F1 Flask Site</title>
+    <title>F1 Competition Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    {{ navbar|safe }}
     <h1>Welcome to the F1 Competition Dashboard</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/F1_logo.svg/512px-F1_logo.svg.png"
+         alt="F1 Car" style="width:300px; margin:20px 0;">
+    <ul>
+        <li><a href="/dashboards/competition/trend-line">Trend Line</a></li>
+        <li><a href="/dashboards/competition/across-tracks">Across Tracks</a></li>
+        <li><a href="/dashboards/competition/car-evolution-rules">Car Evolution / Rules</a></li>
+        <li><a href="/dashboards/drivers/driver-1">Driver 1</a></li>
+        <li><a href="/dashboards/drivers/driver-2">Driver 2</a></li>
+        <li><a href="/dashboards/drivers/driver-3">Driver 3</a></li>
+        <li><a href="/dashboards/qualifying/qualifying-vs-final">Qualifying vs Final</a></li>
+        <li><a href="/dashboards/qualifying/grid-size-by-decade">Grid Size by Decade</a></li>
+        <li><a href="/dashboards/qualifying/avg-final-by-qualifying">Average Final by Qualifying</a></li>
+    </ul>
 </body>
 </html>
