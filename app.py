@@ -1,4 +1,19 @@
 
+
+icon_map = {
+    "overview": ("Overview", "fa-gauge-high"),
+    "drivers": ("Drivers", "fa-car"),
+    "constructors": ("Constructors", "fa-industry"),
+    "tracks": ("Tracks", "fa-road"),
+    "results": ("Race Results", "fa-flag-checkered"),
+    "championships": ("Championships", "fa-trophy"),
+    "about": ("About", "fa-book"),
+    "resources": ("Resources", "fa-folder-open"),
+    "links": ("External Links", "fa-external-link-alt"),
+    "data": ("Data Sources", "fa-database")
+}
+
+
 from flask import Flask, render_template
 import json
 
