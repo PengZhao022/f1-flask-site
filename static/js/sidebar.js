@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (submenu) {
                 submenu.classList.toggle("show");
 
-                // 使用 localStorage 保存展开状态
+                // localStorage 记忆每个 submenu 的展开状态
                 if (submenu.classList.contains("show")) {
                     localStorage.setItem(target, "open");
                 } else {
@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // 初始加载时展开之前打开的菜单
     subMenus.forEach(sub => {
         const id = sub.getAttribute("id");
         if (localStorage.getItem(id) === "open") {
