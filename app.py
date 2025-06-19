@@ -68,3 +68,9 @@ def dynamic_page(page_path):
     page_title, icon_class = icon_map.get(section, ("Untitled", "fa-file"))
     template_file = f"content/{page_path}.html"
     return render_template("page.html", page_title=page_title, icon_class=icon_class, path=page_path, content_template=template_file)
+
+
+if __name__ == '__main__':
+    import os
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
