@@ -13,13 +13,21 @@ html, body {
   float: left;
   padding: 10px;
   background: #f0f0f0;
-  height: 100vh;
-  overflow-y: auto;
+  height: 100%;           /* ✅ 用相对高度代替 100vh */
+  min-height: 100vh;      /* ✅ 保证至少填满视口 */
+  overflow-y: auto;       /* ✅ 需要时自动滚动 */
+  box-sizing: border-box;
 }
 
 .main-content {
   margin-left: 250px;
   padding: 20px;
+}
+
+.main {
+  margin-left: 250px;
+  padding: 30px;
+  box-sizing: border-box;
 }
 
 .collapsible {
@@ -91,7 +99,7 @@ ul.content {
 
 /* 控制首页 logo 大小样式 */
 .logo-image {
-  height: 240px;
+  max-height: 240px;
   width: auto;
   display: block;
   margin: 0 auto 20px auto;  /* 居中 + 下边距 */
@@ -101,13 +109,20 @@ ul.content {
   .logo-image {
     height: 180px;
   }
-}
 
-@media (max-width: 768px) {
   .navbar {
     font-size: 5vw;
     padding: 30px 20px;
   }
+
+  .sidebar {
+    display: none;
+  }
+
+  .main {
+    margin-left: 0 !important;
+  }
+}
 
   .sidebar {
     display: none;  /* 小屏幕隐藏侧边栏可选 */
