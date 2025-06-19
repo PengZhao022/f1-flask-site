@@ -70,3 +70,12 @@ ul.content {
   display: none;
   padding-left: 12px;
 }
+
+/* 控制首页 logo 大小样式 */
+.logo-image {
+  height: 160px;
+  width: auto;
+  display: block;
+  margin: 0 auto 20px auto;  /* 居中 + 下边距 */
+}
+
