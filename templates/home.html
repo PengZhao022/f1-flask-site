@@ -1,0 +1,10 @@
+
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Welcome</h2>
+<p>Welcome to the interactive F1 dashboard. Use the sidebar to explore content.</p>
+<img src="{{ url_for('static', filename='img/f1_home.jpg') }}" alt="F1 Home Image" style="margin-top:15px;max-width:100%;height:auto;">
+{% endblock %}
