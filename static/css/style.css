@@ -1,8 +1,11 @@
 
 html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: hidden;  /* 防止横向滚动条 */
+  overflow-y: auto;    /* ✅ 自动显示纵向滚动条（仅在需要时） */
+  box-sizing: border-box;
 }
 
 .sidebar {
@@ -46,7 +49,7 @@ ul.content {
 /* ✅ 顶部导航栏样式 */
 .navbar {
   font-family: 'Orbitron', sans-serif;  /* ✅ 应用 Orbitron 字体 */
-  height: 120px;                    /* 显示高度 */
+  height: 150px;                    /* 显示高度 */
   overflow: hidden;                /* ✅ 裁掉超出的部分 */
   background-image: url("/static/img/track_bg.jpg");  /* F1 赛道背景图 */
   background-size: cover;         /* 自动填满容器 */
@@ -88,7 +91,7 @@ ul.content {
 
 /* 控制首页 logo 大小样式 */
 .logo-image {
-  height: 320px;
+  height: 240px;
   width: auto;
   display: block;
   margin: 0 auto 20px auto;  /* 居中 + 下边距 */
