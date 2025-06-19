@@ -16,7 +16,7 @@
 <div class="sidebar">
     {% include 'sidebar.html' %}
 </div>
-<div class="main" style="margin-left: 260px; padding: 30px;">
+<div class="main">
     {% block content %}{% endblock %}
 </div>
 <script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
