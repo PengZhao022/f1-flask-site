@@ -1,27 +1,28 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const toggles = document.querySelectorAll(".menu-toggle");
+    const subMenus = document.querySelectorAll(".submenu");
 
-document.addEventListener('DOMContentLoaded', function () {
-    const collapsibles = document.querySelectorAll('.collapsible');
+    toggles.forEach(toggle => {
+        toggle.addEventListener("click", function () {
+            const target = this.getAttribute("data-target");
+            const submenu = document.getElementById(target);
+            if (submenu) {
+                submenu.classList.toggle("show");
 
-    collapsibles.forEach((collapsible, index) => {
-        const content = collapsible.nextElementSibling;
-
-        // 恢复展开状态
-        const isOpen = localStorage.getItem('sidebar_open_' + index) === 'true';
-        if (isOpen) {
-            collapsible.classList.add('active');
-            content.style.maxHeight = content.scrollHeight + "px";
-        }
-
-        // 添加点击事件
-        collapsible.addEventListener('click', function () {
-            this.classList.toggle('active');
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-                localStorage.setItem('sidebar_open_' + index, 'false');
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-                localStorage.setItem('sidebar_open_' + index, 'true');
+                // 使用 localStorage 保存展开状态
+                if (submenu.classList.contains("show")) {
+                    localStorage.setItem(target, "open");
+                } else {
+                    localStorage.removeItem(target);
+                }
             }
         });
+    });
+
+    subMenus.forEach(sub => {
+        const id = sub.getAttribute("id");
+        if (localStorage.getItem(id) === "open") {
+            sub.classList.add("show");
+        }
     });
 });
