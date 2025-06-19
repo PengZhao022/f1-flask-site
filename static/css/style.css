@@ -43,9 +43,9 @@ ul.content {
   background-size: cover;         /* 自动填满容器 */
   background-position: center;    /* 居中对齐 */
   color: white;                   /* 保持字体可读性 */
-  font-size: 2.8em;               /* 更大字体 */
+  font-size: 3.6em;               /* 更大字体 */
   font-weight: bold;
-  padding: 40px 60px;             /* 更大上下边距 */
+  padding: 60px 80px;             /* 更大上下边距 */
   text-align: center;
   width: 100%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);  /* 增加阴影层次感 */
