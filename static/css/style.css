@@ -52,15 +52,13 @@ ul.content {
 /* ✅ 顶部导航栏样式 */
 .navbar {
   font-family: 'Orbitron', sans-serif;  /* ✅ 应用 Orbitron 字体 */
-  height: 150px;                    /* 显示高度 */
-  overflow: hidden;                /* ✅ 裁掉超出的部分 */
   background-image: url("/static/img/track_bg.jpg");  /* F1 赛道背景图 */
   background-size: cover;         /* 自动填满容器 */
   background-position: center;    /* 居中对齐 */
   color: white;                   /* 保持字体可读性 */
-  font-size: 3.6vw;               /* 更大字体 */
+  font-size: 3.2vw;               /* 更大字体 */
   font-weight: bold;
-  padding: 20px 40px;             /* 更大上下边距 */
+  padding: 30px 60px;             /* 更大上下边距 */
   min-height: 120px;
   text-align: center;
   width: 100%;
