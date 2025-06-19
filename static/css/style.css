@@ -1,22 +1,62 @@
 
-.sidebar { width: 220px; float: left; padding: 10px; background: #f0f0f0; height: 100vh; overflow-y: auto; }
-.main-content { margin-left: 250px; padding: 20px; }
-.collapsible { cursor: pointer; font-weight: bold; display: block; margin-top: 10px; }
-ul.content { display: none; list-style-type: none; padding-left: 15px; }
-.sidebar a.active { background-color: #ccc; font-weight: bold; }
-.collapsible .arrow { display: inline-block; width: 20px; font-weight: bold; }
-.navbar { background-color: #003366; color: white; padding: 12px; font-weight: bold; font-size: 20px; text-align: center; }
-.search-box { padding: 10px; }
-.search-box input { width: 90%; padding: 5px; border-radius: 5px; border: 1px solid #ccc; }
+.sidebar {
+  width: 220px;
+  float: left;
+  padding: 10px;
+  background: #f0f0f0;
+  height: 100vh;
+  overflow-y: auto;
+}
 
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+}
 
-/* 顶部导航栏样式 */
-.navbar {
-  background-color: #1e1e1e;
-  color: white;
-  padding: 12px 24px;
-  font-size: 20px;
+.collapsible {
+  cursor: pointer;
   font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+ul.content {
+  display: none;
+  list-style-type: none;
+  padding-left: 15px;
+}
+
+.sidebar a.active {
+  background-color: #ccc;
+  font-weight: bold;
+}
+
+.collapsible .arrow {
+  display: inline-block;
+  width: 20px;
+  font-weight: bold;
+}
+
+/* ✅ 顶部导航栏样式 */
+.navbar {
+  background-color: #1e1e1e;  /* 深灰背景 */
+  color: white;
+  font-size: 2.2em;           /* 放大字体 */
+  font-weight: bold;
+  padding: 24px 40px;         /* 加大内边距 */
+  text-align: center;
+  max-width: 100%;
+}
+
+.search-box {
+  padding: 10px;
+}
+
+.search-box input {
+  width: 90%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 /* 修复菜单链接为垂直排列 */
@@ -26,4 +66,7 @@ ul.content { display: none; list-style-type: none; padding-left: 15px; }
   margin: 3px 0;
 }
 
-.content { display: none; padding-left: 12px; }
+.content {
+  display: none;
+  padding-left: 12px;
+}
