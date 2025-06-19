@@ -39,13 +39,17 @@ ul.content {
 
 /* ✅ 顶部导航栏样式 */
 .navbar {
-  background-color: #1e1e1e;  /* 深灰背景 */
-  color: white;
-  font-size: 2.2em;           /* 放大字体 */
+  background-image: url("/static/img/track_bg.jpg");  /* F1 赛道背景图 */
+  background-size: cover;         /* 自动填满容器 */
+  background-position: center;    /* 居中对齐 */
+  color: white;                   /* 保持字体可读性 */
+  font-size: 2.8em;               /* 更大字体 */
   font-weight: bold;
-  padding: 24px 40px;         /* 加大内边距 */
+  padding: 40px 60px;             /* 更大上下边距 */
   text-align: center;
-  max-width: 100%;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);  /* 增加阴影层次感 */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);  /* 防止字体被背景遮盖 */
 }
 
 .search-box {
@@ -73,7 +77,7 @@ ul.content {
 
 /* 控制首页 logo 大小样式 */
 .logo-image {
-  height: 160px;
+  height: 320px;
   width: auto;
   display: block;
   margin: 0 auto 20px auto;  /* 居中 + 下边距 */
