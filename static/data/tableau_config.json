@@ -1,8 +1,0 @@
-{
-  "/dashboards/competition/trend-line": "f1workbook/trendline",
-  "/dashboards/competition/across-tracks": "f1workbook/across_tracks",
-  "/dashboards/competition/car-evolution-rules": "f1workbook/car_rules",
-  "/dashboards/qualifying/qualifying-vs-final": "f1qual/qual_vs_final",
-  "/dashboards/qualifying/grid-size-by-decade": "f1qual/grid_decade",
-  "/dashboards/qualifying/avg-final-by-qualifying": "f1qual/avg_final_qual"
-}
