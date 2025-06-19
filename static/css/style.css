@@ -44,7 +44,7 @@ ul.content {
   background-size: cover;         /* 自动填满容器 */
   background-position: center;    /* 居中对齐 */
   color: white;                   /* 保持字体可读性 */
-  font-size: 5.2em;               /* 更大字体 */
+  font-size: 3.6em;               /* 更大字体 */
   font-weight: bold;
   padding: 60px 80px;             /* 更大上下边距 */
   min-height: 180px;
