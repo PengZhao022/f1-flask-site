@@ -72,6 +72,16 @@ ul.content {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);  /* 增加阴影层次感 */
   text-shadow: 2px 2px 4px rgba(0,0,0,0.6);  /* 防止字体被背景遮盖 */
   box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);  /* ✅ 半透明遮罩 */
+  z-index: -1;
 }
 
 .search-box {
