@@ -1,84 +1,85 @@
 {
-  "About": {
-    "About F1": {
-      "path": "/about/about-f1",
-      "description": "Text test",
-      "tableau": ""
+  "menu": [
+    {
+      "name": "\ud83c\udfe0 Homepage",
+      "url": "/"
     },
-    "Purpose": {
-      "path": "/about/purpose",
-      "description": "Text test",
-      "tableau": ""
+    {
+      "name": "\ud83d\udcd8 About F1",
+      "url": "/about-f1"
     },
-    "Team Members": {
-      "path": "/about/team",
-      "description": "Text test",
-      "tableau": ""
+    {
+      "name": "\ud83c\udfaf Purpose",
+      "url": "/purpose"
+    },
+    {
+      "name": "\ud83d\udc65 Team Members",
+      "url": "/team-members"
+    },
+    {
+      "name": "\ud83d\udcca Dashboards",
+      "submenu": [
+        {
+          "name": "\ud83e\uddd1\u200d\ud83d\udcbc Driver Career Performance",
+          "submenu": [
+            {
+              "name": "\ud83d\udcc8 Radar Plot",
+              "url": "/dashboards/driver/radar"
+            },
+            {
+              "name": "\ud83d\udcc9 Race vs Finish",
+              "url": "/dashboards/driver/race-finish"
+            }
+          ]
+        },
+        {
+          "name": "\ud83d\udee3\ufe0f Track View",
+          "submenu": [
+            {
+              "name": "\ud83d\uddc2\ufe0f Grid View Toggle",
+              "url": "/dashboards/track/grid"
+            },
+            {
+              "name": "\ud83d\udcca Track Competitiveness",
+              "url": "/dashboards/track/competitiveness"
+            }
+          ]
+        },
+        {
+          "name": "\ud83c\udfce\ufe0f Constructor View",
+          "url": "/dashboards/constructor/usability"
+        },
+        {
+          "name": "\ud83c\udf0d Analytics Extras",
+          "submenu": [
+            {
+              "name": "\ud83d\uddfa\ufe0f Global Map",
+              "url": "/dashboards/extras/global"
+            },
+            {
+              "name": "\ud83c\udfc1 Winning Stats",
+              "url": "/dashboards/extras/winning"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "\ud83d\udcda Resources",
+      "submenu": [
+        {
+          "name": "\ud83d\udd17 GitHub",
+          "url": "/resources/github"
+        },
+        {
+          "name": "\ud83d\udcc2 Source Data",
+          "url": "/resources/source-data"
+        },
+        {
+          "name": "\ud83d\udcd1 Citations",
+          "url": "/resources/citations"
+        }
+      ]
     }
-  },
-  "Dashboards": {
-    "Competition": {
-      "Trend Line": {
-        "path": "/dashboards/competition/trend-line",
-        "description": "Text test",
-        "tableau": "tableau/link"
-      },
-      "Across Tracks": {
-        "path": "/dashboards/competition/across-tracks",
-        "description": "Text test",
-        "tableau": "tableau/link"
-      },
-      "Car Evolution / Rules": {
-        "path": "/dashboards/competition/car-evolution-rules",
-        "description": "Text test",
-        "tableau": "tableau/link"
-      }
-    },
-    "Drivers": {
-      "1": {
-        "path": "/dashboards/drivers/1",
-        "description": "Text test",
-        "tableau": "tableau/link"
-      },
-      "2": {
-        "path": "/dashboards/drivers/2",
-        "description": "Text test",
-        "tableau": "tableau/link"
-      },
-      "3": {
-        "path": "/dashboards/drivers/3",
-        "description": "Text test",
-        "tableau": "tableau/link"
-      }
-    },
-    "Qualifying": {
-      "Qualifying vs Final": {
-        "path": "/dashboards/qualifying/qualifying-vs-final",
-        "description": "Text test",
-        "tableau": "tableau/link"
-      },
-      "Grid Size by Decade": {
-        "path": "/dashboards/qualifying/grid-size-by-decade",
-        "description": "Text test",
-        "tableau": "tableau/link"
-      },
-      "Avg Final by Qualifying": {
-        "path": "/dashboards/qualifying/avg-final-by-qualifying",
-        "description": "Text test",
-        "tableau": "tableau/link"
-      }
-    }
-  },
-  "Resources": {
-    "Documentation": {
-      "path": "/resources/documentation",
-      "description": "Text test",
-      "tableau": ""
-    },
-    "GitHub Link": {
-      "path": "/resources/github-link",
-      "description": "Text test",
-      "tableau": ""
-    }
-  }
+  ]
 }
