@@ -1,2 +1,4 @@
-flask
+Flask
 gunicorn
+Jinja2
+python-dotenv
