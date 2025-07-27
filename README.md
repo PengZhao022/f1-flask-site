@@ -1,3 +1,2 @@
-# F1 Flask Site
-
-A Flask-based site to host Tableau-embedded dashboards for F1 competition analysis.
+# F1 Dashboard
+This project hosts a Flask web app for Formula 1 analytics.

@@ -1,1 +1,1 @@
-// Add your JavaScript here
+// JavaScript for F1 Dashboard
