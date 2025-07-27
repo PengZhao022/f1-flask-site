@@ -1,0 +1,125 @@
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;  /* 防止横向滚动条 */
+  overflow-y: auto;    /* ✅ 自动显示纵向滚动条（仅在需要时） */
+  box-sizing: border-box;
+}
+
+.sidebar {
+  width: 220px;
+  float: left;
+  padding: 10px;
+  background: #f0f0f0;
+  height: 100%;           /* ✅ 用相对高度代替 100vh */
+  min-height: 100vh;      /* ✅ 保证至少填满视口 */
+  overflow-y: auto;       /* ✅ 需要时自动滚动 */
+  box-sizing: border-box;
+}
+
+.main {
+  margin-left: 260px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.collapsible {
+  cursor: pointer;
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+ul.content {
+  display: none;
+  list-style-type: none;
+  padding-left: 15px;
+}
+
+.sidebar a.active {
+  background-color: #ccc;
+  font-weight: bold;
+}
+
+.collapsible .arrow {
+  display: inline-block;
+  width: 20px;
+  font-weight: bold;
+}
+
+/* ✅ 顶部导航栏样式 */
+.navbar {
+  font-family: 'Orbitron', sans-serif;  /* ✅ 应用 Orbitron 字体 */
+  min-height: 120px;
+  background-image: url("/static/img/track_bg.jpg");  /* F1 赛道背景图 */
+  background-size: cover;         /* 自动填满容器 */
+  background-position: center;    /* 居中对齐 */
+  color: white;                   /* 保持字体可读性 */
+  font-size: 3.2vw;               /* 更大字体 */
+  font-weight: bold;
+  padding: 30px 60px;             /* 更大上下边距 */
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);  /* 增加阴影层次感 */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);  /* 防止字体被背景遮盖 */
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);  /* ✅ 半透明遮罩 */
+  z-index: -1;
+}
+
+.search-box {
+  padding: 10px;
+}
+
+.search-box input {
+  width: 90%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* 修复菜单链接为垂直排列 */
+.sidebar a {
+  display: block;
+  padding: 6px 0 6px 20px;
+  margin: 3px 0;
+}
+
+.content {
+  display: none;
+  padding-left: 12px;
+}
+
+/* 控制首页 logo 大小样式 */
+.logo-image {
+  max-height: 240px;
+  width: auto;
+  display: block;
+  margin: 0 auto 20px auto;  /* 居中 + 下边距 */
+}
+
+@media (max-width: 768px) {
+  .logo-image {
+    height: 180px;
+  }
+
+  .navbar {
+    font-size: 5vw;
+    padding: 30px 20px;
+  }
+
+  .main {
+    margin-left: 0 !important;  /* 防止主内容被侧边栏挤压 */
+    padding: 20px;
+  }
+}
