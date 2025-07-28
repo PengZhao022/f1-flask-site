@@ -23,10 +23,10 @@ html, body {
 
 /* 主体区域 */
 .main {
-  margin-left: 316px; /* sidebar宽度 + 30px边距 */
-  padding: 30px;
-  box-sizing: border-box;
+/*margin-left: 316px;*/ /* sidebar宽度 + 30px边距 */
   flex: 1; /* 主内容填满剩余空间 */
+  padding: 30px;
+  box-sizing: border-box;  
 }
 
 /* 展开菜单样式 */

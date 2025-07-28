@@ -13,9 +13,10 @@
             <h1 class="text-center">F1 Interactive Dashboard</h1>
         </div>
 
-        <div class="row">
+        <!-- Flex 容器用于 sidebar + main 并排 -->
+        <div class="d-flex">
             <!-- Sidebar -->
-            <nav class="col-3 col-md-2 p-3 sidebar">
+            <nav class="sidebar p-3">
                 <ul class="nav flex-column">
                     <li><a href="{{ url_for('home') }}" class="nav-link">🏠 Home</a></li>
 
@@ -81,7 +82,7 @@
             </nav>
 
             <!-- Main content -->
-            <main class="main col-9 col-md-10 p-4">
+            <main class="main p-4">
                 {% block content %}{% endblock %}
             </main>
         </div>
@@ -113,7 +114,6 @@
         primaryMenus.forEach(menu => {
             menu.addEventListener("click", function (e) {
                 e.preventDefault();
-
                 const targetId = this.getAttribute("href");
                 const targetMenu = document.querySelector(targetId);
                 if (!targetMenu) return;
