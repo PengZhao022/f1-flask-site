@@ -18,12 +18,12 @@
   },
   "Dashboards": {
     "Driver Career Performance": {
-      "Trend Line": {
+      "Radar-Plot": {
         "path": "/dashboards/competition/trend-line",
         "description": "Text test",
         "tableau": "tableau/link"
       },
-      "Across Tracks": {
+      "Race-Number Vs Finish-Position": {
         "path": "/dashboards/competition/across-tracks",
         "description": "Text test",
         "tableau": "tableau/link"
