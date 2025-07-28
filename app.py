@@ -27,19 +27,12 @@ def generate_sidebar():
     for section, items in MENU_CONFIG.items():
         html += f'<span class="collapsible">{section}</span><ul class="content">'
         for label, content in items.items():
-            if isinstance(content, dict) and "path" in content:
+            if "path" in content:
                 html += f'<li><a href="{content["path"]}">{label}</a></li>'
-            elif isinstance(content, dict):
+            else:
                 html += f'<li><span class="collapsible">{label}</span><ul class="content">'
                 for sublabel, subcontent in content.items():
-                    if isinstance(subcontent, dict) and "path" in subcontent:
-                        html += f'<li><a href="{subcontent["path"]}">{sublabel}</a></li>'
-                    elif isinstance(subcontent, dict):
-                        html += f'<li><span class="collapsible">{sublabel}</span><ul class="content">'
-                        for sub_sublabel, sub_subcontent in subcontent.items():
-                            if isinstance(sub_subcontent, dict) and "path" in sub_subcontent:
-                                html += f'<li><a href="{sub_subcontent["path"]}">{sub_sublabel}</a></li>'
-                        html += "</ul></li>"
+                    html += f'<li><a href="{subcontent["path"]}">{sublabel}</a></li>'
                 html += "</ul></li>"
         html += "</ul>"
     return html
