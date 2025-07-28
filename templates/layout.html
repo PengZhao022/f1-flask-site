@@ -20,7 +20,7 @@
                     <li><a href="{{ url_for('home') }}" class="nav-link">🏠 Home</a></li>
 
                     <li>
-                        <a href="#aboutMenu" class="nav-link parent-menu" data-bs-toggle="collapse">ℹ️ About</a>
+                        <a href="#aboutMenu" class="nav-link parent-menu">ℹ️ About</a>
                         <ul class="collapse list-unstyled" id="aboutMenu">
                             <li><a href="{{ url_for('about_f1') }}" class="nav-link child-menu">📘 About F1</a></li>
                             <li><a href="{{ url_for('purpose') }}" class="nav-link child-menu">🎯 Purpose</a></li>
@@ -29,7 +29,7 @@
                     </li>
 
                     <li>
-                        <a href="#dashboardsMenu" class="nav-link parent-menu" data-bs-toggle="collapse">📊 Dashboards</a>
+                        <a href="#dashboardsMenu" class="nav-link parent-menu">📊 Dashboards</a>
                         <ul class="collapse list-unstyled" id="dashboardsMenu">
                             <li>
                                 <a href="#driverMenu" class="nav-link" data-bs-toggle="collapse">🏎️ Driver Career Performance</a>
@@ -70,7 +70,7 @@
                     </li>
 
                     <li>
-                        <a href="#resourcesMenu" class="nav-link parent-menu" data-bs-toggle="collapse">📚 Resources</a>
+                        <a href="#resourcesMenu" class="nav-link parent-menu">📚 Resources</a>
                         <ul class="collapse list-unstyled" id="resourcesMenu">
                             <li><a href="{{ url_for('data') }}" class="nav-link child-menu">📄 Source Data</a></li>
                             <li><a href="{{ url_for('github') }}" class="nav-link child-menu">💻 GitHub</a></li>
@@ -100,43 +100,41 @@
         navLinks.forEach(link => {
             if (link.href === currentUrl || currentUrl.startsWith(link.href)) {
                 link.classList.add("active");
-
-
                 let parentCollapse = link.closest("ul.collapse");
                 while (parentCollapse) {
-		    parentCollapse.classList.add("show");
-            	    parentCollapse = parentCollapse.parentElement.closest("ul.collapse");
-		}
+                    parentCollapse.classList.add("show");
+                    parentCollapse = parentCollapse.parentElement.closest("ul.collapse");
+                }
             }
         });
 
-        // 一级菜单点击，切换展开并折叠其他
-        document.querySelectorAll('.parent-menu').forEach(menu => {
+        // 一级菜单展开/折叠逻辑
+        const primaryMenus = document.querySelectorAll('.parent-menu');
+        primaryMenus.forEach(menu => {
             menu.addEventListener("click", function (e) {
+                e.preventDefault();
+
                 const targetId = this.getAttribute("href");
                 const targetMenu = document.querySelector(targetId);
-
-                // 不处理找不到的情况
                 if (!targetMenu) return;
 
                 const isOpen = targetMenu.classList.contains("show");
 
-                document.querySelectorAll('.parent-menu').forEach(otherMenu => {
+                // 折叠所有其他一级菜单
+                primaryMenus.forEach(otherMenu => {
                     const otherId = otherMenu.getAttribute("href");
                     const otherTarget = document.querySelector(otherId);
-                    if (otherTarget !== targetMenu) {
+                    if (otherTarget && otherTarget !== targetMenu) {
                         otherTarget.classList.remove("show");
                     }
                 });
 
-                // 切换当前菜单展开状态
+                // 切换当前目标
                 if (isOpen) {
                     targetMenu.classList.remove("show");
                 } else {
                     targetMenu.classList.add("show");
                 }
-
-                e.preventDefault(); // 阻止跳转锚点
             });
         });
     });
