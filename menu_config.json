@@ -17,7 +17,7 @@
     }
   },
   "Dashboards": {
-    "Competition": {
+    "Driver Career Performance": {
       "Trend Line": {
         "path": "/dashboards/competition/trend-line",
         "description": "Text test",
@@ -34,7 +34,7 @@
         "tableau": "tableau/link"
       }
     },
-    "Drivers": {
+    "Track": {
       "1": {
         "path": "/dashboards/drivers/1",
         "description": "Text test",
@@ -51,8 +51,8 @@
         "tableau": "tableau/link"
       }
     },
-    "Qualifying": {
-      "Qualifying vs Final": {
+    "Constructor": {
+      "Constructor vs Final": {
         "path": "/dashboards/qualifying/qualifying-vs-final",
         "description": "Text test",
         "tableau": "tableau/link"
@@ -62,7 +62,7 @@
         "description": "Text test",
         "tableau": "tableau/link"
       },
-      "Avg Final by Qualifying": {
+      "Avg Final by Constructor": {
         "path": "/dashboards/qualifying/avg-final-by-qualifying",
         "description": "Text test",
         "tableau": "tableau/link"

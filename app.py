@@ -2,7 +2,7 @@
 
 icon_map = {
     "overview": ("Overview", "fa-gauge-high"),
-    "drivers": ("Drivers", "fa-car"),
+    "drivers": ("Track", "fa-car"),
     "constructors": ("Constructors", "fa-industry"),
     "tracks": ("Tracks", "fa-road"),
     "results": ("Race Results", "fa-flag-checkered"),
