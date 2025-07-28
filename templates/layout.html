@@ -87,7 +87,46 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Sidebar 菜单高亮与保持展开 -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const currentUrl = window.location.href;
+        const navLinks = document.querySelectorAll(".sidebar a.nav-link");
+
+        navLinks.forEach(link => {
+            if (link.href === currentUrl) {
+                link.classList.add("active");
+
+                // 展开所有祖先菜单
+                let parentCollapse = link.closest("ul.collapse");
+                while (parentCollapse) {
+                    new bootstrap.Collapse(parentCollapse, { toggle: true });
+                    parentCollapse.classList.add("show");
+                    parentCollapse = parentCollapse.parentElement.closest("ul.collapse");
+                }
+            }
+        });
+
+        // 改变点击行为，保持多个展开不折叠
+        const toggles = document.querySelectorAll('[data-bs-toggle="collapse"]');
+        toggles.forEach(toggle => {
+            toggle.addEventListener("click", function (e) {
+                const targetId = this.getAttribute("href") || this.dataset.bsTarget;
+                if (!targetId) return;
+
+                const target = document.querySelector(targetId);
+                if (target.classList.contains("show")) {
+                    new bootstrap.Collapse(target, { toggle: true });
+                } else {
+                    new bootstrap.Collapse(target, { toggle: true });
+                }
+                e.preventDefault();
+            });
+        });
+    });
+    </script>
 </body>
 </html>
