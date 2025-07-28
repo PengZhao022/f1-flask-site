@@ -96,40 +96,45 @@
         const currentUrl = window.location.href;
         const navLinks = document.querySelectorAll(".sidebar a.nav-link");
 
-        // 当前页面对应菜单高亮 & 父级展开
+        // 高亮当前链接并展开父层
         navLinks.forEach(link => {
             if (link.href === currentUrl || currentUrl.startsWith(link.href)) {
                 link.classList.add("active");
-                let parentCollapse = link.closest("ul.collapse");
-                while (parentCollapse) {
-                    parentCollapse.classList.add("show");
-                    parentCollapse = parentCollapse.parentElement.closest("ul.collapse");
+                let parent = link.closest("ul.collapse");
+                while (parent) {
+                    parent.classList.add("show");
+                    parent = parent.parentElement.closest("ul.collapse");
                 }
             }
         });
 
-        // 一级菜单点击后折叠其他 & 切换当前
-        const primaryMenus = document.querySelectorAll('.parent-menu');
-        primaryMenus.forEach(menu => {
+        // 一级菜单点击，切换展开并折叠其他
+        document.querySelectorAll('.parent-menu').forEach(menu => {
             menu.addEventListener("click", function (e) {
                 const targetId = this.getAttribute("href");
-                const target = document.querySelector(targetId);
-                const isShown = target.classList.contains("show");
+                const targetMenu = document.querySelector(targetId);
+
+                // 不处理找不到的情况
+                if (!targetMenu) return;
+
+                const isOpen = targetMenu.classList.contains("show");
 
                 document.querySelectorAll('.parent-menu').forEach(otherMenu => {
-                    const otherTarget = document.querySelector(otherMenu.getAttribute("href"));
-                    if (otherTarget !== target) {
+                    const otherId = otherMenu.getAttribute("href");
+                    const otherTarget = document.querySelector(otherId);
+                    if (otherTarget !== targetMenu) {
                         otherTarget.classList.remove("show");
                     }
                 });
 
-                if (isShown) {
-                    target.classList.remove("show");
+                // 切换当前菜单展开状态
+                if (isOpen) {
+                    targetMenu.classList.remove("show");
                 } else {
-                    target.classList.add("show");
+                    targetMenu.classList.add("show");
                 }
 
-                e.preventDefault();
+                e.preventDefault(); // 阻止跳转锚点
             });
         });
     });

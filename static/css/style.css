@@ -77,6 +77,14 @@ ul.content {
   z-index: 1;
 }
 
+/* 标题字体设置 */
+.navbar h1 {
+  color: white;
+  font-size: 5vw;
+  font-weight: bold;
+  margin: 0;
+}
+
 /* 半透明遮罩 */
 .navbar::before {
   content: "";
