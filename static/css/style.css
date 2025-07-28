@@ -9,8 +9,9 @@ html, body {
 
 /* Sidebar 样式 */
 .sidebar {
-  width: 286px; /* 宽度调整 */
-  float: left;
+  flex: 0 0 320px; /* sidebar宽度 */
+  max-width: 320px;
+/*float: left;*/
   padding: 10px;
   background: #f8f9fa;
   height: 100%;
@@ -25,6 +26,7 @@ html, body {
   margin-left: 316px; /* sidebar宽度 + 30px边距 */
   padding: 30px;
   box-sizing: border-box;
+  flex: 1; /* 主内容填满剩余空间 */
 }
 
 /* 展开菜单样式 */
