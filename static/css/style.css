@@ -9,7 +9,7 @@ html, body {
 
 /* Sidebar 样式 */
 .sidebar {
-  width: 320px; /* 宽度调整 */
+  width: 286px; /* 宽度调整 */
   float: left;
   padding: 10px;
   background: #f8f9fa;
@@ -17,12 +17,12 @@ html, body {
   min-height: 100vh;
   overflow-y: auto;
   box-sizing: border-box;
-  font-size: 90%;
+  font-size: 95%;
 }
 
 /* 主体区域 */
 .main {
-  margin-left: 336px; /* sidebar宽度 + 16px边距 */
+  margin-left: 316px; /* sidebar宽度 + 30px边距 */
   padding: 30px;
   box-sizing: border-box;
 }
@@ -217,18 +217,18 @@ ul.content {
 
 /* ✅ 多层级菜单字体大小微调 */
 .sidebar > ul > li > a.nav-link {
-  font-size: 90%;      /* 一级菜单字体大小 */
+  font-size: 95%;      /* 一级菜单字体大小 */
   font-weight: bold;   /* 可选：让一级菜单更突出 */
 }
 
 .sidebar ul ul > li > a.nav-link {
-  font-size: 80%;      /* 二级菜单字体 */
+  font-size: 85%;      /* 二级菜单字体 */
 }
 
 .sidebar ul ul ul > li > a.nav-link {
-  font-size: 75%;      /* 三级菜单字体（如果有） */
+  font-size: 80%;      /* 三级菜单字体（如果有） */
 }
 
 .sidebar ul ul ul ul > li > a.nav-link {
-  font-size: 70%;      /* 四级菜单字体（如果有） */
+  font-size: 75%;      /* 四级菜单字体（如果有） */
 }
