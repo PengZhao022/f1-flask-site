@@ -100,13 +100,13 @@
         navLinks.forEach(link => {
             if (link.href === currentUrl || currentUrl.startsWith(link.href)) {
                 link.classList.add("active");
-		if (!window.location.pathname === "/") {
-                    let parentCollapse = link.closest("ul.collapse");
-                    while (parentCollapse) {
-                        parentCollapse.classList.add("show");
-                        parentCollapse = parentCollapse.parentElement.closest("ul.collapse");
-		    }
-                }
+
+
+                let parentCollapse = link.closest("ul.collapse");
+                while (parentCollapse) {
+		    parentCollapse.classList.add("show");
+            	    parentCollapse = parentCollapse.parentElement.closest("ul.collapse");
+		}
             }
         });
 
