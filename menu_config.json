@@ -18,17 +18,17 @@
   },
   "Dashboards": {
     "Driver Career Performance": {
-      "Trend Line": {
+      "Radar Plot with Definitions of Career Metrics": {
         "path": "/dashboards/competition/trend-line",
         "description": "Text test",
         "tableau": "tableau/link"
       },
-      "Across Tracks": {
+      "Race Number and Finish Position": {
         "path": "/dashboards/competition/across-tracks",
         "description": "Text test",
         "tableau": "tableau/link"
       },
-      "Car Evolution / Rules": {
+      "": {
         "path": "/dashboards/competition/car-evolution-rules",
         "description": "Text test",
         "tableau": "tableau/link"
@@ -66,6 +66,30 @@
         "path": "/dashboards/qualifying/avg-final-by-qualifying",
         "description": "Text test",
         "tableau": "tableau/link"
+      }
+    },
+    "Analytics Extras": {
+      "Global Map": {
+        "path": "/dashboards/analytics-extras/global-map",
+        "description": "Text test",
+        "tableau": "tableau/link"
+      },
+      "Tracks": {
+        "Winningest Driver": {
+          "path": "/dashboards/analytics-extras/tracks/winningest-driver",
+          "description": "Text test",
+          "tableau": "tableau/link"
+        },
+        "Winingest Constructor": {
+          "path": "/dashboards/analytics-extras/tracks/winingest-constructor",
+          "description": "Text test",
+          "tableau": "tableau/link"
+        },
+        "Years of Driver Career Performance": {
+          "path": "/dashboards/analytics-extras/tracks/years-of-competition",
+          "description": "Text test",
+          "tableau": "tableau/link"
+        }
       }
     }
   },
