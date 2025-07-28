@@ -20,7 +20,7 @@
                     <li><a href="{{ url_for('home') }}" class="nav-link">🏠 Home</a></li>
 
                     <li>
-                        <a data-bs-toggle="collapse" href="#aboutMenu" class="nav-link parent-menu">ℹ️ About</a>
+                        <a href="#aboutMenu" class="nav-link parent-menu" data-bs-toggle="collapse">ℹ️ About</a>
                         <ul class="collapse list-unstyled" id="aboutMenu">
                             <li><a href="{{ url_for('about_f1') }}" class="nav-link child-menu">📘 About F1</a></li>
                             <li><a href="{{ url_for('purpose') }}" class="nav-link child-menu">🎯 Purpose</a></li>
@@ -29,35 +29,35 @@
                     </li>
 
                     <li>
-                        <a data-bs-toggle="collapse" href="#dashboardsMenu" class="nav-link parent-menu">📊 Dashboards</a>
+                        <a href="#dashboardsMenu" class="nav-link parent-menu" data-bs-toggle="collapse">📊 Dashboards</a>
                         <ul class="collapse list-unstyled" id="dashboardsMenu">
                             <li>
-                                <a data-bs-toggle="collapse" href="#driverMenu" class="nav-link">🏎️ Driver Career Performance</a>
+                                <a href="#driverMenu" class="nav-link" data-bs-toggle="collapse">🏎️ Driver Career Performance</a>
                                 <ul class="collapse list-unstyled" id="driverMenu">
                                     <li><a href="{{ url_for('radar_plot') }}" class="nav-link child-menu">🧭 Radar Plot</a></li>
                                     <li><a href="{{ url_for('race_number') }}" class="nav-link child-menu">🏁 Race Number</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a data-bs-toggle="collapse" href="#trackMenu" class="nav-link">🗺️ Track</a>
+                                <a href="#trackMenu" class="nav-link" data-bs-toggle="collapse">🗺️ Track</a>
                                 <ul class="collapse list-unstyled" id="trackMenu">
                                     <li><a href="{{ url_for('track1') }}" class="nav-link child-menu">📍 Track1</a></li>
                                     <li><a href="{{ url_for('track2') }}" class="nav-link child-menu">📍 Track2</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a data-bs-toggle="collapse" href="#constructorMenu" class="nav-link">🏗️ Constructor</a>
+                                <a href="#constructorMenu" class="nav-link" data-bs-toggle="collapse">🏗️ Constructor</a>
                                 <ul class="collapse list-unstyled" id="constructorMenu">
                                     <li><a href="{{ url_for('c1') }}" class="nav-link child-menu">🔧 C1</a></li>
                                     <li><a href="{{ url_for('c2') }}" class="nav-link child-menu">🔧 C2</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a data-bs-toggle="collapse" href="#analyticsMenu" class="nav-link">📈 Analytics Extras</a>
+                                <a href="#analyticsMenu" class="nav-link" data-bs-toggle="collapse">📈 Analytics Extras</a>
                                 <ul class="collapse list-unstyled" id="analyticsMenu">
                                     <li><a href="{{ url_for('global_map') }}" class="nav-link child-menu">🌍 Global Map</a></li>
                                     <li>
-                                        <a data-bs-toggle="collapse" href="#tracksMenu" class="nav-link">🧮 Tracks</a>
+                                        <a href="#tracksMenu" class="nav-link" data-bs-toggle="collapse">🧮 Tracks</a>
                                         <ul class="collapse list-unstyled" id="tracksMenu">
                                             <li><a href="{{ url_for('winningest_driver') }}" class="nav-link child-menu">🏆 Winningest Driver</a></li>
                                             <li><a href="{{ url_for('winningest_constructor') }}" class="nav-link child-menu">🏆 Winningest Constructor</a></li>
@@ -70,7 +70,7 @@
                     </li>
 
                     <li>
-                        <a data-bs-toggle="collapse" href="#resourcesMenu" class="nav-link parent-menu">📚 Resources</a>
+                        <a href="#resourcesMenu" class="nav-link parent-menu" data-bs-toggle="collapse">📚 Resources</a>
                         <ul class="collapse list-unstyled" id="resourcesMenu">
                             <li><a href="{{ url_for('data') }}" class="nav-link child-menu">📄 Source Data</a></li>
                             <li><a href="{{ url_for('github') }}" class="nav-link child-menu">💻 GitHub</a></li>
@@ -90,14 +90,15 @@
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Sidebar 菜单高亮与保持展开 -->
+    <!-- Sidebar 菜单高亮与折叠逻辑 -->
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         const currentUrl = window.location.href;
         const navLinks = document.querySelectorAll(".sidebar a.nav-link");
 
+        // 当前页面对应菜单高亮 & 父级展开
         navLinks.forEach(link => {
-            if (link.href === currentUrl) {
+            if (link.href === currentUrl || currentUrl.startsWith(link.href)) {
                 link.classList.add("active");
                 let parentCollapse = link.closest("ul.collapse");
                 while (parentCollapse) {
@@ -107,27 +108,25 @@
             }
         });
 
-        const allMenus = document.querySelectorAll('.sidebar .nav > li > a[data-bs-toggle="collapse"]');
-
-        allMenus.forEach(menu => {
+        // 一级菜单点击后折叠其他 & 切换当前
+        const primaryMenus = document.querySelectorAll('.parent-menu');
+        primaryMenus.forEach(menu => {
             menu.addEventListener("click", function (e) {
                 const targetId = this.getAttribute("href");
-                const targetMenu = document.querySelector(targetId);
+                const target = document.querySelector(targetId);
+                const isShown = target.classList.contains("show");
 
-                if (!targetMenu) return;
-
-                const isShown = targetMenu.classList.contains("show");
-
-                document.querySelectorAll('.sidebar .nav > li > ul.collapse').forEach(otherMenu => {
-                    if (otherMenu !== targetMenu) {
-                        otherMenu.classList.remove("show");
+                document.querySelectorAll('.parent-menu').forEach(otherMenu => {
+                    const otherTarget = document.querySelector(otherMenu.getAttribute("href"));
+                    if (otherTarget !== target) {
+                        otherTarget.classList.remove("show");
                     }
                 });
 
                 if (isShown) {
-                    targetMenu.classList.remove("show");
+                    target.classList.remove("show");
                 } else {
-                    targetMenu.classList.add("show");
+                    target.classList.add("show");
                 }
 
                 e.preventDefault();

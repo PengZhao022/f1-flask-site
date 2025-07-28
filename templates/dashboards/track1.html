@@ -1,4 +1,8 @@
-<h2 style='text-align: center;'>Track1</h2>
+{% extends "layout.html" %}
+
+{% block content %}
+<h2 style='text-align: center;'>Need update Tableau link</h2>
+<p>Update later...</p>
 
 <div class='tableauPlaceholder' id='viz1753675021790' style='position: relative'>
 <noscript><a href='#'><img alt='National Football Team Overview ' src='https://public.tableau.com/static/images/Na/NationalFootballTeamOverview/NationalFootballTeamOverview/1_rss.png' style='border: none' /></a></noscript>
@@ -18,13 +22,15 @@
 <param name='language' value='en-US' />
 </object>
 </div>
+
 <script type='text/javascript'>
 var divElement = document.getElementById('viz1753675021790');
 var vizElement = divElement.getElementsByTagName('object')[0];
-if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1400px';vizElement.style.height='1027px';}
-else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1400px';vizElement.style.height='1027px';}
-else { vizElement.style.width='1400px';vizElement.style.height='1027px';}
+if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height='800px';}
+else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height='700px';}
+else { vizElement.style.width='100%';vizElement.style.height='600px';}
 var scriptElement = document.createElement('script');
 scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
 vizElement.parentNode.insertBefore(scriptElement, vizElement);
 </script>
+{% endblock %}
