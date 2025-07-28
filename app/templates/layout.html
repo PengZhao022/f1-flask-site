@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>F1 Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row bg-primary text-white p-3" style="background-image: url('/static/background.jpg'); background-size: cover;">
+            <h1 class="text-center">F1 Career Analysis Portal</h1>
+        </div>
+        <div class="row">
+            <nav class="col-3 col-md-2 p-3 bg-light">
+                <ul class="nav flex-column">
+                    <li><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
+
+                    <li>
+                        <a data-bs-toggle="collapse" href="#aboutMenu" class="nav-link">About</a>
+                        <ul class="collapse list-unstyled" id="aboutMenu">
+                            <li><a href="{{ url_for('about_f1') }}" class="nav-link">About F1</a></li>
+                            <li><a href="{{ url_for('purpose') }}" class="nav-link">Purpose</a></li>
+                            <li><a href="{{ url_for('team') }}" class="nav-link">Team Members</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a data-bs-toggle="collapse" href="#dashboardsMenu" class="nav-link">Dashboards</a>
+                        <ul class="collapse list-unstyled" id="dashboardsMenu">
+                            <li>
+                                <a data-bs-toggle="collapse" href="#driverMenu" class="nav-link">Driver Career Performance</a>
+                                <ul class="collapse list-unstyled" id="driverMenu">
+                                    <li><a href="{{ url_for('radar_plot') }}" class="nav-link">Radar Plot with Definitions of Career Metrics</a></li>
+                                    <li><a href="{{ url_for('race_number') }}" class="nav-link">Race Number and Finish Position</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="collapse" href="#trackMenu" class="nav-link">Track</a>
+                                <ul class="collapse list-unstyled" id="trackMenu">
+                                    <li><a href="{{ url_for('track1') }}" class="nav-link">Track1</a></li>
+                                    <li><a href="{{ url_for('track2') }}" class="nav-link">Track2</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="collapse" href="#constructorMenu" class="nav-link">Constructor</a>
+                                <ul class="collapse list-unstyled" id="constructorMenu">
+                                    <li><a href="{{ url_for('c1') }}" class="nav-link">C1</a></li>
+                                    <li><a href="{{ url_for('c2') }}" class="nav-link">C2</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="collapse" href="#analyticsMenu" class="nav-link">Analytics Extras</a>
+                                <ul class="collapse list-unstyled" id="analyticsMenu">
+                                    <li><a href="{{ url_for('global_map') }}" class="nav-link">Global Map</a></li>
+                                    <li>
+                                        <a data-bs-toggle="collapse" href="#tracksMenu" class="nav-link">Tracks</a>
+                                        <ul class="collapse list-unstyled" id="tracksMenu">
+                                            <li><a href="{{ url_for('winningest_driver') }}" class="nav-link">Winningest Driver</a></li>
+                                            <li><a href="{{ url_for('winningest_constructor') }}" class="nav-link">Winningest Constructor</a></li>
+                                            <li><a href="{{ url_for('years_of_competition') }}" class="nav-link">Years of Competition</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a data-bs-toggle="collapse" href="#resourcesMenu" class="nav-link">Resources</a>
+                        <ul class="collapse list-unstyled" id="resourcesMenu">
+                            <li><a href="{{ url_for('data') }}" class="nav-link">Source Data</a></li>
+                            <li><a href="{{ url_for('github') }}" class="nav-link">GitHub</a></li>
+                            <li><a href="{{ url_for('references') }}" class="nav-link">References / Citations</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <main class="col-9 col-md-10 p-4">
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

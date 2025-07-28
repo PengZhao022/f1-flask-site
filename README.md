@@ -1,3 +1,3 @@
-# F1 Flask Site
+# F1 Career Dashboard
 
-A Flask-based site to host Tableau-embedded dashboards for F1 competition analysis.
+Deployed with Flask on DigitalOcean.
