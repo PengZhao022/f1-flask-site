@@ -48,18 +48,6 @@ def c2():
 def global_map():
     return render_template('dashboards/global_map.html')
 
-@app.route('/dashboards/winningest_driver')
-def winningest_driver():
-    return render_template('dashboards/winningest_driver.html')
-
-@app.route('/dashboards/winningest_constructor')
-def winningest_constructor():
-    return render_template('dashboards/winningest_constructor.html')
-
-@app.route('/dashboards/years')
-def years_of_competition():
-    return render_template('dashboards/years_of_competition.html')
-
 # Resources
 @app.route('/resources/data')
 def data():

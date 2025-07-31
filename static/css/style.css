@@ -7,9 +7,9 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Sidebar 样式 */
+/* Sidebar style */
 .sidebar {
-  flex: 0 0 320px; /* sidebar宽度 */
+  flex: 0 0 320px; /* sidebar width */
   max-width: 320px;
 /*float: left;*/
   padding: 10px;
@@ -21,15 +21,15 @@ html, body {
   font-size: 95%;
 }
 
-/* 主体区域 */
+/* Main content area */
 .main {
-/*margin-left: 316px;*/ /* sidebar宽度 + 30px边距 */
-  flex: 1; /* 主内容填满剩余空间 */
+/*margin-left: 316px;*/ /* Sidebar width + 30px margin */
+  flex: 1; /* Main content fills remaining space */
   padding: 30px;
   box-sizing: border-box;  
 }
 
-/* 展开菜单样式 */
+/* Expandable menu style */
 .collapsible {
   cursor: pointer;
   font-weight: bold;
@@ -37,14 +37,14 @@ html, body {
   margin-top: 10px;
 }
 
-/* 子菜单列表隐藏样式 */
+/* Hidden style for submenu list */
 ul.content {
   display: none;
   list-style-type: none;
   padding-left: 15px;
 }
 
-/* 激活状态样式 */
+/* Active state style */
 .sidebar a.active,
 .nav-link.active {
   background-color: #dee2e6;
@@ -53,14 +53,14 @@ ul.content {
   border-radius: 4px;
 }
 
-/* 箭头样式 */
+/* Arrow style */
 .collapsible .arrow {
   display: inline-block;
   width: 20px;
   font-weight: bold;
 }
 
-/* 顶部导航栏样式 */
+/* Top navigation bar style */
 .navbar {
   font-family: 'Orbitron', sans-serif;
   min-height: 120px;
@@ -80,7 +80,7 @@ ul.content {
   z-index: 1;
 }
 
-/* 标题字体设置 */
+/* Title font settings */
 .navbar h1 {
   color: white;
   font-size: 5vw;
@@ -88,7 +88,7 @@ ul.content {
   margin: 0;
 }
 
-/* 半透明遮罩 */
+/* Semi-transparent overlay */
 .navbar::before {
   content: "";
   position: absolute;
@@ -97,7 +97,7 @@ ul.content {
   z-index: -1;
 }
 
-/* 搜索框 */
+/* Search box */
 .search-box {
   padding: 10px;
 }
@@ -110,10 +110,10 @@ ul.content {
 }
 
 /* ================================ */
-/* ✅ 分级菜单样式增强 */
+/* ✅ Enhanced styles for hierarchical menus */
 /* ================================ */
 
-/* 一级菜单 */
+/* First-level menu */
 .sidebar > ul > li > a {
   font-size: 1.2rem;
   font-weight: 700;
@@ -124,7 +124,7 @@ ul.content {
   border-radius: 6px;
 }
 
-/* 一级菜单分隔线 */
+/* First-level menu divider */
 .sidebar > ul > li:not(:first-child)::before {
   content: "";
   display: block;
@@ -132,7 +132,7 @@ ul.content {
   margin: 10px 0;
 }
 
-/* 二级菜单 */
+/* Second-level menu */
 .sidebar ul ul > li > a {
   font-size: 1.05rem;
   font-weight: 500;
@@ -143,7 +143,7 @@ ul.content {
   border-radius: 4px;
 }
 
-/* 二级菜单分隔线 */
+/* Second-level menu divider */
 .sidebar ul ul > li:not(:first-child)::before {
   content: "";
   display: block;
@@ -151,14 +151,14 @@ ul.content {
   margin: 6px 0;
 }
 
-/* 鼠标悬停 */
+/* Hover state */
 .sidebar a:hover {
   background-color: #d7ecff;
   font-weight: 600;
   color: #000;
 }
 
-/* 首页 Logo 样式 */
+/* Homepage logo style */
 .logo-image {
   max-height: 360px;
   width: auto;
@@ -166,7 +166,7 @@ ul.content {
   margin: 0 auto 20px auto;
 }
 
-/* 响应式适配 */
+/* Responsive layout adaptation */
 @media (max-width: 768px) {
   .logo-image {
     height: 180px;
@@ -184,25 +184,25 @@ ul.content {
 }
 
 /* ================================ */
-/* ✅ 多层级菜单缩进 + 动画效果 */
+/* ✅ Multi-level menu indentation + animation effects */
 /* ================================ */
 
-/* 二级菜单 */
+/* Second-level menu */
 .sidebar ul ul {
   padding-left: 20px;
 }
 
-/* 三级菜单 */
+/* Third-level menu */
 .sidebar ul ul ul {
   padding-left: 40px;
 }
 
-/* 四级菜单 */
+/* Fourth-level menu */
 .sidebar ul ul ul ul {
   padding-left: 60px;
 }
 
-/* 动画展开 */
+/* Expand with animation */
 .sidebar ul.collapse {
   transition: max-height 0.4s ease-out;
   overflow: hidden;
@@ -217,20 +217,20 @@ ul.content {
   max-height: 0;
 }
 
-/* ✅ 多层级菜单字体大小微调 */
+/* ✅  Font size fine-tuning for multi-level menus */
 .sidebar > ul > li > a.nav-link {
-  font-size: 95%;      /* 一级菜单字体大小 */
-  font-weight: bold;   /* 可选：让一级菜单更突出 */
+  font-size: 95%;      /* First-level menu font size */
+  font-weight: bold;   /* Optional: Make first-level menu more prominent */
 }
 
 .sidebar ul ul > li > a.nav-link {
-  font-size: 85%;      /* 二级菜单字体 */
+  font-size: 85%;      /* Second-level menu font size */
 }
 
 .sidebar ul ul ul > li > a.nav-link {
-  font-size: 80%;      /* 三级菜单字体（如果有） */
+  font-size: 80%;      /* Third-level menu font size (if any) */
 }
 
 .sidebar ul ul ul ul > li > a.nav-link {
-  font-size: 75%;      /* 四级菜单字体（如果有） */
+  font-size: 75%;      /* Fourth-level menu font size (if any) */
 }
