@@ -246,7 +246,6 @@ ul.content {
     right: 15%;  /* shift left to center horizontally */
     width: 28%;  /* about 30% smaller than previous 40% */
     height: auto; /* keep aspect ratio */
-    background-image: url("../img/About F1.jpg");
     background-size: contain; /* no cropping */
     background-repeat: no-repeat;
     background-position: center;
@@ -259,7 +258,7 @@ ul.content {
 .about-f1-title {
     font-size: 200%; /* enlarge text */
     text-align: center; /* center horizontally */
-    margin-top: 25%; /* push down so it overlaps top of background image */
+    margin-top: 15%; /* push down so it overlaps top of background image */
 }
 
 /* Paragraph styling */
@@ -269,4 +268,3 @@ ul.content {
     max-width: 80%; /* limit width for better readability */
     margin: 0 auto; /* center horizontally */
 }
-
