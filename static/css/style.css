@@ -242,8 +242,8 @@ ul.content {
     position: absolute; /* Positioned inside the content area */
     bottom: 15%; /* move up from bottom to center in bottom section */
     right: 15%; /* move left from right to center horizontally */
-    width: 70%; /* 30% smaller than full width */
-    height: 70%; /* scale height proportionally */
+    width: 90%; /* 10% smaller than full width */
+    height: 90%; /* scale height proportionally */
     background-image: url("../img/about_F1.jpg"); 
     background-size: contain; /* Keep full image without cropping */
     background-repeat: no-repeat;
@@ -260,7 +260,7 @@ body, .container, .main, .content {
 
 /* Title styling */
 .about-f1-title {
-    font-size: 200%; /* enlarge text */
+    font-size: 400%; /* enlarge text */
     text-align: center; /* center horizontally */
     margin-top: 10%; /* push down to middle-upper area of background image */
 }
