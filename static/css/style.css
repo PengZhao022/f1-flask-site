@@ -239,20 +239,20 @@ ul.content {
    About F1 background image
    ======================= */
 .about-f1-bg {
-    position: absolute; /* Position relative to nearest positioned ancestor */
-    bottom: 0; /* Stick to bottom */
-    right: 0; /* Stick to right */
-    width: 40%; /* Responsive width */
-    height: 40%; /* Responsive height */
+    position: absolute; /* Positioned inside the content area */
+    bottom: 0; /* Stick to bottom of content area */
+    right: 0; /* Stick to right of content area */
+    width: 100%; /* Cover full width of the content area */
+    height: 100%; /* Cover full height of the content area */
     background-image: url("../img/About F1.jpg"); /* Path to image */
-    background-size: cover; /* Auto crop and scale */
-    background-position: center; /* Keep center focus */
-    opacity: 0.2; /* Transparency to keep text readable */
-    pointer-events: none; /* Allow clicks on text above */
+    background-size: cover; /* Maintain aspect ratio and fill */
+    background-position: right bottom; /* Focus on bottom-right of the image */
+    opacity: 0.35; /* Increase visibility, keep text readable */
+    pointer-events: none; /* Allow interactions with text above */
     z-index: -1; /* Behind text */
 }
 
-/* Ensure parent can hold absolutely positioned child */
+/* Ensure content container can hold the absolute element */
 body, .container, .main, .content {
     position: relative;
 }
