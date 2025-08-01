@@ -240,11 +240,11 @@ ul.content {
    ======================= */
 .about-f1-bg {
     position: absolute; /* Positioned inside the content area */
-    bottom: 15%; /* move up from bottom to center in bottom section */
-    right: 15%; /* move left from right to center horizontally */
-    width: 90%; /* 10% smaller than full width */
-    height: 90%; /* scale height proportionally */
-    background-image: url("../img/about_F1.jpg"); 
+    bottom: 15%; /* Move up from bottom to center in bottom section */
+    right: 15%; /* Move left from right to center horizontally */
+    width: 70%; /* 30% smaller than full width */
+    height: 70%; /* Scale height proportionally */
+    background-image: url("../img/About F1.jpg"); /* Keep original path */
     background-size: contain; /* Keep full image without cropping */
     background-repeat: no-repeat;
     background-position: center;
@@ -258,17 +258,17 @@ body, .container, .main, .content {
     position: relative;
 }
 
-/* Title styling */
+/* Title styling - auto scaling */
 .about-f1-title {
-    font-size: 400%; /* enlarge text */
-    text-align: center; /* center horizontally */
-    margin-top: 10%; /* push down to middle-upper area of background image */
+    font-size: clamp(1.5rem, 3vw, 3rem); /* min, preferred, max */
+    text-align: center; /* Center horizontally */
+    margin-top: 10%; /* Push down to middle-upper area of background image */
 }
 
-/* Paragraph styling */
+/* Paragraph styling - auto scaling */
 .about-f1-text {
-    font-size: 200%; /* enlarge paragraph text */
-    text-align: center; /* center horizontally */
-    max-width: 80%; /* limit width for readability */
-    margin: 0 auto; /* center horizontally */
+    font-size: clamp(1rem, 2.5vw, 2rem); /* min, preferred, max */
+    text-align: center; /* Center horizontally */
+    max-width: 80%; /* Limit width for readability */
+    margin: 0 auto; /* Center horizontally */
 }
