@@ -239,7 +239,7 @@ ul.content {
    About F1 background image
    ======================= */
 .about-f1-bg {
-    position: absolute; /* Position fixed inside page */
+    position: absolute; /* Position relative to nearest positioned ancestor */
     bottom: 0; /* Stick to bottom */
     right: 0; /* Stick to right */
     width: 40%; /* Responsive width */
@@ -252,7 +252,7 @@ ul.content {
     z-index: -1; /* Behind text */
 }
 
-/* Ensure container or body can hold absolutely positioned child */
-body, .container, .main {
+/* Ensure parent can hold absolutely positioned child */
+body, .container, .main, .content {
     position: relative;
 }
