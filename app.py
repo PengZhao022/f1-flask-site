@@ -71,10 +71,11 @@ def github():
 def references():
     return render_template('resources/references.html')
 
-""""
+
 if __name__ == '__main__':
     app.run(debug=True)
 
+""""
 if __name__ == '__main__':
     # use livereload for live reloading during development
     server = Server(app.wsgi_app)
