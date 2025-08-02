@@ -71,6 +71,7 @@ def github():
 def references():
     return render_template('resources/references.html')
 
+""""
 if __name__ == '__main__':
     app.run(debug=True)
 
@@ -85,3 +86,5 @@ if __name__ == '__main__':
     server.watch('*.py')
     # start the server
     server.serve(port=5000, host='127.0.0.1', debug=True)
+
+"""
