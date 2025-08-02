@@ -1,4 +1,14 @@
 from flask import Flask, render_template
+from livereload import Server
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+
+from flask import Flask, render_template
 app = Flask(__name__)
 
 # Home
@@ -63,3 +73,15 @@ def references():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+if __name__ == '__main__':
+    # use livereload for live reloading during development
+    server = Server(app.wsgi_app)
+    # monitor templates folder for changes
+    server.watch('templates/')
+    # monitor static files (CSS, JS, images) for changes
+    server.watch('static/')
+    # monitor Python files for changes
+    server.watch('*.py')
+    # start the server
+    server.serve(port=5000, host='127.0.0.1', debug=True)

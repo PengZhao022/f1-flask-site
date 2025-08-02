@@ -238,17 +238,37 @@ ul.content {
 /* =======================
    About F1 background image (scaled and centered in bottom section)
    ======================= */
+
+.about-f1-fullwidth {
+    position: relative;
+    width: 100vw;   /* full screen */
+    margin-top: 60px; /* space from top */
+    margin-left: 60px; /* negative margin to offset padding */
+    margin-right: 60px; /* negative margin to offset padding */
+    height: 100vh; /* full screen height */
+    overflow: hidden; /* Hide overflow */
+    display: flex; /* Flexbox for centering content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #f8f9fa; /* Light background for contrast */
+    padding: 30px 60px; /* Padding for content */
+    box-sizing: border-box; /* Include padding in width/height */
+    z-index: 0; /* Ensure it is below the title and text */
+}
+
 .about-f1-bg {
     position: absolute; /* Positioned inside the content area */
-    bottom: 15%; /* Move up from bottom to center in bottom section */
-    right: 15%; /* Move left from right to center horizontally */
-    width: 70%; /* 30% smaller than full width */
-    height: 70%; /* Scale height proportionally */
-    background-image: url("../img/About F1.jpg"); /* Keep original path */
-    background-size: contain; /* Keep full image without cropping */
+    top: 25px; /* Align to top of content area */
+    left: 0; /* Align to left of content area */
+/*  bottom: 2%; /* Move up from bottom to center in bottom section */
+/*  right: 0%; /* Move left from right to center horizontally */
+    width: calc(100% - 12px);; /* 30% smaller than full width */
+    height: 100%; /* Scale height proportionally */
+    background-image: url("../img/about_f1.jpg"); /* Keep original path */
+    background-size: cover; /* could use 'contain' to keep full image without cropping */
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.3; /* Adjust transparency */
+    opacity: 0.25; /* Adjust transparency */
     pointer-events: none;
     z-index: -1; /* Behind text */
 }
@@ -260,15 +280,39 @@ body, .container, .main, .content {
 
 /* Title styling - auto scaling */
 .about-f1-title {
-    font-size: clamp(1.5rem, 3vw, 3rem); /* min, preferred, max */
+    font-size: clamp(1rem, 5vw, 10rem); /* min, preferred, max */
     text-align: center; /* Center horizontally */
-    margin-top: 10%; /* Push down to middle-upper area of background image */
+    margin-top: 8%;
+    margin-bottom: 80px; /* Push down to middle-upper area of background image */
+    color: #3399ff; /* White color for contrast */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Subtle shadow for readability */
+    font-weight: bold; /* Make title bold */
+    z-index: 1; /* Ensure it is above the background image */
+    position: relative; /* Position relative to the container */
+    padding: 0 20px; /* Add some padding for better readability */
+    box-sizing: border-box; /* Include padding in width/height */
+    max-width: 80%; /* Limit width for readability */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+    line-height: 1.2; /* Adjust line height for better spacing */
+    font-family: 'Orbitron', sans-serif; /* Use the same font as navbar */
 }
 
 /* Paragraph styling - auto scaling */
 .about-f1-text {
-    font-size: clamp(1rem, 2.5vw, 2rem); /* min, preferred, max */
+    font-size: clamp(1rem, 3vw, 3rem); /* min, preferred, max */
     text-align: center; /* Center horizontally */
     max-width: 80%; /* Limit width for readability */
     margin: 0 auto; /* Center horizontally */
+    color: #3399ff; /* White color for contrast */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6); /* Subtle shadow for readability */
+    font-weight: 400; /* Normal weight for body text */
+    z-index: 1; /* Ensure it is above the
 }
+
+.about-f1-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    position: relative;
+}
+
