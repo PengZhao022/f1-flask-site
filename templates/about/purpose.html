@@ -1,9 +1,21 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h2>Purpose</h2>
-<p>This Dashboard gives us exciting views into driver performance amongst a series of unique metrics to compare driver career over time. You can select Drivers to compare by either searching their name or clicking the checkbox near their name. We use the following metrics for driver comparisons - Teammate Dominance, Team Loyalty, Age, Age of Debut, Career Length, Rookie Scoire, Peak Season Score, Competitive Seasons.
+<h2 class="purpose-title">Purpose</h2>
+<p class="purpose-text">
+    This Dashboard gives us exciting views into driver performance amongst a series of unique metrics to compare driver career over time. You can select Drivers to compare by either searching their name or clicking the checkbox near their name.
+</p>
 
+<p class="purpose-text">
+    We use the following metrics for driver comparisons - Teammate Dominance, Team Loyalty, Age, Age of Debut, Career Length, Rookie Score, Peak Season Score, Competitive Seasons.
+</p>
+
+<p class="purpose-text">
     Each Metric is calculated as follows:
 </p>
+
+<!-- Background image container for Purpose -->
+<div class="purpose-bg">
+    <img src="{{ url_for('static', filename='img/purpose.jpeg') }}" alt="purpose">
+</div>
 {% endblock %}

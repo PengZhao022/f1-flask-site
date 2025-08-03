@@ -1,8 +1,15 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h2>Team Members</h2>
-<p>Rob Horrobin;</p>
-</p>Peng Zhao;</p>
-</p>Hrishi Ingale</p>
+
+<h2 class="team_members-title">Team Members</h2>
+
+<span class="team_members-text">Rob&nbsp;Horrobin</span>
+<span class="team_members-text">Peng&nbsp;Zhao</span>
+<span class="team_members-text">Hrishi&nbsp;Ingale</span>
+
+<!-- Background image container for Team Members -->
+<div class="team_members-bg">
+    <img src="{{ url_for('static', filename='img/team_members.jpg') }}" alt="team_members">
+</div>
 {% endblock %}

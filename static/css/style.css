@@ -262,8 +262,8 @@ ul.content {
     left: 0; /* Align to left of content area */
 /*  bottom: 2%; /* Move up from bottom to center in bottom section */
 /*  right: 0%; /* Move left from right to center horizontally */
-    width: calc(100% - 12px);; /* 30% smaller than full width */
-    height: 100%; /* Scale height proportionally */
+    width: calc(100% - 12px); /* 30% smaller than full width */
+    height: calc(100% - 25px); /* Scale height proportionally */
     background-image: url("../img/about_f1.jpg"); /* Keep original path */
     background-size: cover; /* could use 'contain' to keep full image without cropping */
     background-repeat: no-repeat;
@@ -280,11 +280,11 @@ body, .container, .main, .content {
 
 /* Title styling - auto scaling */
 .about-f1-title {
-    font-size: clamp(1rem, 5vw, 10rem); /* min, preferred, max */
+    font-size: clamp(1rem, 2.5vw, 10rem); /* min, preferred, max */
     text-align: center; /* Center horizontally */
-    margin-top: 8%;
-    margin-bottom: 80px; /* Push down to middle-upper area of background image */
-    color: #3399ff; /* White color for contrast */
+    margin-top: 1%;
+    margin-bottom: 28px; /* Push down to middle-upper area of background image */
+    color: #3369ff; /* White color for contrast */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Subtle shadow for readability */
     font-weight: bold; /* Make title bold */
     z-index: 1; /* Ensure it is above the background image */
@@ -300,14 +300,15 @@ body, .container, .main, .content {
 
 /* Paragraph styling - auto scaling */
 .about-f1-text {
-    font-size: clamp(1rem, 3vw, 3rem); /* min, preferred, max */
-    text-align: center; /* Center horizontally */
-    max-width: 80%; /* Limit width for readability */
-    margin: 0 auto; /* Center horizontally */
-    color: #3399ff; /* White color for contrast */
+    font-size: clamp(1rem, 1.2vw, 3rem); /* min, preferred, max */
+    text-align: left; /* Left horizontally */
+    max-width: 100%; /* Limit width for readability */
+    padding: 0 160px; /* left and right 40px */
+    margin: 0 auto 30px auto; /* top, right, bottom left */
+    color: #3369ff; /* White color for contrast */
     text-shadow: 1px 1px 2px rgba(0,0,0,0.6); /* Subtle shadow for readability */
     font-weight: 400; /* Normal weight for body text */
-    z-index: 1; /* Ensure it is above the
+    z-index: 1; /* Ensure it is above the background image */
 }
 
 .about-f1-container {
@@ -316,3 +317,184 @@ body, .container, .main, .content {
     position: relative;
 }
 
+
+/* =======================
+   Purpose background image (scaled and centered in bottom section)
+   ======================= */
+
+.purpose-fullwidth {
+    position: relative;
+    width: 100vw;   /* full screen */
+    margin-top: 60px; /* space from top */
+    margin-left: 60px; /* negative margin to offset padding */
+    margin-right: 60px; /* negative margin to offset padding */
+    height: 100vh; /* full screen height */
+    overflow: hidden; /* Hide overflow */
+    display: flex; /* Flexbox for centering content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #f8f9fa; /* Light background for contrast */
+    padding: 30px 60px; /* Padding for content */
+    box-sizing: border-box; /* Include padding in width/height */
+    z-index: 0; /* Ensure it is below the title and text */
+}
+
+.purpose-bg {
+    position: absolute; /* Positioned inside the content area */
+    top: 25px; /* Align to top of content area */
+    left: 0; /* Align to left of content area */
+/*  bottom: 2%; /* Move up from bottom to center in bottom section */
+/*  right: 0%; /* Move left from right to center horizontally */
+    width: calc(100% - 12px); /* Smaller than full width */
+    height: calc(100% - 25px); /* Scale height proportionally */
+    background-image: url("../img/purpose.jpeg"); /* Keep original path */
+    background-size: cover; /* could use 'contain' to keep full image without cropping */
+    background-position: center; /* Center horizontally and slightly lower vertically */
+    background-repeat: no-repeat;
+    opacity: 0.25; /* Adjust transparency */
+    pointer-events: none;
+    z-index: -1; /* Behind text */
+}
+
+/* Ensure content container can hold the absolute element */
+body, .container, .main, .content {
+    position: relative;
+}
+
+/* Title styling - auto scaling */
+.purpose-title {
+    font-size: clamp(1rem, 2.5vw, 10rem); /* min, preferred, max */
+    text-align: center; /* Center horizontally */
+    margin-top: 1%;
+    margin-bottom: 28px; /* Push down to middle-upper area of background image */
+    color: #3369ff; /* White color for contrast */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Subtle shadow for readability */
+    font-weight: bold; /* Make title bold */
+    z-index: 1; /* Ensure it is above the background image */
+    position: relative; /* Position relative to the container */
+    padding: 0 20px; /* Add some padding for better readability */
+    box-sizing: border-box; /* Include padding in width/height */
+    max-width: 80%; /* Limit width for readability */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+    line-height: 1.2; /* Adjust line height for better spacing */
+    font-family: 'Orbitron', sans-serif; /* Use the same font as navbar */
+}
+
+/* Paragraph styling - auto scaling */
+.purpose-text {
+    font-size: clamp(1rem, 1.2vw, 3rem); /* min, preferred, max */
+    text-align: left; /* Left horizontally */
+    max-width: 100%; /* Limit width for readability */
+    margin: 0 auto 30 auto; /* top, right, bottom, left */
+    padding: 0 80px; /* left and right 40px */
+    color: #3369ff; /* White color for contrast */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6); /* Subtle shadow for readability */
+    font-weight: 400; /* Normal weight for body text */
+    z-index: 1; /* Ensure it is above the background image */
+}
+
+.purpose-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    position: relative;
+}
+
+.purpose-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 23%; /* Center horizontally and slightly lower vertically */
+}
+
+
+/* =======================
+   Team members background image (scaled and centered in bottom section)
+   ======================= */
+
+.team_members-fullwidth {
+    position: relative;
+    width: 100vw;   /* full screen */
+    margin-top: 60px; /* space from top */
+    margin-left: 60px; /* negative margin to offset padding */
+    margin-right: 60px; /* negative margin to offset padding */
+    height: 100vh; /* full screen height */
+    overflow: hidden; /* Hide overflow */
+    display: flex; /* Flexbox for centering content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #f8f9fa; /* Light background for contrast */
+    padding: 30px 60px; /* Padding for content */
+    box-sizing: border-box; /* Include padding in width/height */
+    z-index: 0; /* Ensure it is below the title and text */
+}
+
+.team_members-bg {
+    position: absolute; /* Positioned inside the content area */
+    top: 25px; /* Align to top of content area */
+    left: 0; /* Align to left of content area */
+/*  bottom: 2%; /* Move up from bottom to center in bottom section */
+/*  right: 0%; /* Move left from right to center horizontally */
+    width: calc(100% - 12px); /* Smaller than full width */
+    height: calc(100% - 25px); /* Scale height proportionally */
+    background-image: url("../img/team_members.jpg"); /* Keep original path */
+    background-size: cover; /* could use 'contain' to keep full image without cropping */
+    background-position: center 58%; /* Center horizontally and slightly lower vertically */
+    background-repeat: no-repeat;
+  
+    opacity: 0.25; /* Adjust transparency */
+    pointer-events: none;
+    z-index: -1; /* Behind text */
+}
+
+/* Ensure content container can hold the absolute element */
+body, .container, .main, .content {
+    position: relative;
+}
+
+/* Title styling - auto scaling */
+.team_members-title {
+    font-size: clamp(1rem, 2.5vw, 10rem); /* min, preferred, max */
+    text-align: center; /* Center horizontally */
+    margin-top: 1%;
+    margin-bottom: 90px; /* Push down to middle-upper area of background image */
+    color: #3369ff; /* White color for contrast */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Subtle shadow for readability */
+    font-weight: bold; /* Make title bold */
+    z-index: 1; /* Ensure it is above the background image */
+    position: relative; /* Position relative to the container */
+    padding: 0 20px; /* Add some padding for better readability */
+    box-sizing: border-box; /* Include padding in width/height */
+    max-width: 80%; /* Limit width for readability */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+    line-height: 1.2; /* Adjust line height for better spacing */
+    font-family: 'Orbitron', sans-serif; /* Use the same font as navbar */
+}
+
+/* Paragraph styling - auto scaling */
+.team_members-text {
+    font-size: clamp(1rem, 2vw, 3rem); /* min, preferred, max */
+    text-align: center; /* Center horizontally */
+    max-width: 100%; /* Limit width for readability */
+    margin: 0 auto 30 auto; /* top, right, bottom, left */
+    margin-right: 10px; 
+    padding: 0 120px 0 150px; /* top right bottom left */
+    color: #3369ff; /* White color for contrast */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6); /* Subtle shadow for readability */
+    font-weight: 600; /* Normal weight for body text */
+    z-index: 1; /* Ensure it is above the background image */
+}
+
+.team_members-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    position: relative;
+}
+
+.team_members-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 60%; /* Center horizontally and slightly lower vertically */
+}
