@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // =========================
-  // Sidebar collapsible menu logic
-  // =========================
   const expanded = new Set(JSON.parse(localStorage.getItem("expandedMenus") || "[]"));
   let collapsibles = Array.from(document.querySelectorAll(".collapsible"));
 
@@ -38,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Highlight current link
+  // highlight active link
   const path = window.location.pathname;
   document.querySelectorAll(".sidebar a").forEach(function (link) {
     if (link.getAttribute("href") === path) {
@@ -55,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Sidebar search
+  // search functionality
   const search = document.getElementById("menuSearch");
   if (search) {
     search.addEventListener("input", function () {
@@ -67,16 +64,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // =========================
-  // Adjust sidebar position/height based on navbar
-  // =========================
+  // === NEW: Adjust sidebar position based on navbar height ===
   function adjustSidebar() {
     const navbar = document.querySelector('.navbar');
     const sidebar = document.querySelector('.sidebar');
-
     if (navbar && sidebar) {
       const navbarHeight = navbar.offsetHeight;
       sidebar.style.top = navbarHeight + 'px';
       sidebar.style.height = `calc(100vh - ${navbarHeight}px)`;
     }
   }
+
+  window.addEventListener('resize', adjustSidebar);
+  adjustSidebar(); // run once on page load
+});

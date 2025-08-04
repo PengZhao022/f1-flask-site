@@ -9,21 +9,25 @@ html, body {
 
 /* Sidebar style */
 .sidebar {
-  flex: 0 0 320px; /* sidebar width */
-  max-width: 320px;
-/*float: left;*/
-  padding: 10px;
-  background: #f8f9fa;
-  height: 100%;
-  min-height: 100vh;
+  position: relative; /* Will be adjusted by JS dynamically */
+  flex: 0 1 30vw; /* ✅ Responsive width: 20% of viewport width, can shrink */
+  min-width: 200px; /* ✅ Prevent too narrow on small screens */
+  max-width: 320px; /* ✅ Prevent too wide on large screens */
+  margin-top: 2vh; /* ✅ Gap between navbar and sidebar: 2% of viewport height */
+  margin-right: 0.5vw; /* ✅ Gap between sidebar and right-side background image */
   overflow-y: auto;
+  z-index: 1000;
+  padding: 1vw; /* ✅ Padding scales with viewport width */
+  background: #f8f9fa;
   box-sizing: border-box;
-  font-size: 95%;
+  font-size: 1vw; /* ✅ Menu font size scales with viewport width */
+  height: calc(100vh - 2vh); /* ✅ Fill viewport height minus gap */
 }
+
 
 /* Main content area */
 .main {
-/*margin-left: 316px;*/ /* Sidebar width + 30px margin */
+/*  margin-left: 320px; /* ✅ Ensure main content starts after the fixed sidebar */
   flex: 1; /* Main content fills remaining space */
   padding: 30px;
   box-sizing: border-box;  
@@ -228,11 +232,11 @@ ul.content {
 }
 
 .sidebar ul ul ul > li > a.nav-link {
-  font-size: 80%;      /* Third-level menu font size (if any) */
+  font-size: 70%;      /* Third-level menu font size (if any) */
 }
 
 .sidebar ul ul ul ul > li > a.nav-link {
-  font-size: 75%;      /* Fourth-level menu font size (if any) */
+  font-size: 70%;      /* Fourth-level menu font size (if any) */
 }
 
 /* =======================
@@ -258,7 +262,7 @@ ul.content {
 
 .about-f1-bg {
     position: absolute; /* Positioned inside the content area */
-    top: 25px; /* Align to top of content area */
+    top: 2vh; /* Align to top of content area */
     left: 0; /* Align to left of content area */
 /*  bottom: 2%; /* Move up from bottom to center in bottom section */
 /*  right: 0%; /* Move left from right to center horizontally */
@@ -267,7 +271,7 @@ ul.content {
     background-image: url("../img/about_f1.jpg"); /* Keep original path */
     background-size: cover; /* could use 'contain' to keep full image without cropping */
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center 88%;
     opacity: 0.25; /* Adjust transparency */
     pointer-events: none;
     z-index: -1; /* Behind text */
@@ -282,8 +286,8 @@ body, .container, .main, .content {
 .about-f1-title {
     font-size: clamp(1rem, 2.5vw, 10rem); /* min, preferred, max */
     text-align: center; /* Center horizontally */
-    margin-top: 1%;
-    margin-bottom: 28px; /* Push down to middle-upper area of background image */
+    margin-top: 8vh;
+    margin-bottom: 3vh; /* Push down to middle-upper area of background image */
     color: #3369ff; /* White color for contrast */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Subtle shadow for readability */
     font-weight: bold; /* Make title bold */
@@ -307,7 +311,7 @@ body, .container, .main, .content {
     margin: 0 auto 30px auto; /* top, right, bottom left */
     color: #3369ff; /* White color for contrast */
     text-shadow: 1px 1px 2px rgba(0,0,0,0.6); /* Subtle shadow for readability */
-    font-weight: 400; /* Normal weight for body text */
+    font-weight: 600; /* Normal weight for body text */
     z-index: 1; /* Ensure it is above the background image */
 }
 
@@ -325,23 +329,23 @@ body, .container, .main, .content {
 .purpose-fullwidth {
     position: relative;
     width: 100vw;   /* full screen */
-    margin-top: 60px; /* space from top */
-    margin-left: 60px; /* negative margin to offset padding */
-    margin-right: 60px; /* negative margin to offset padding */
+    margin-top: 8vh; /* space from top */
+    margin-left: 2vw; /* negative margin to offset padding */
+    margin-right: 4vw; /* negative margin to offset padding */
     height: 100vh; /* full screen height */
     overflow: hidden; /* Hide overflow */
     display: flex; /* Flexbox for centering content */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     background-color: #f8f9fa; /* Light background for contrast */
-    padding: 30px 60px; /* Padding for content */
+    padding: 3vh 4vw; /* Padding for content */
     box-sizing: border-box; /* Include padding in width/height */
     z-index: 0; /* Ensure it is below the title and text */
 }
 
 .purpose-bg {
     position: absolute; /* Positioned inside the content area */
-    top: 25px; /* Align to top of content area */
+    top: 2vh; /* Align to top of content area */
     left: 0; /* Align to left of content area */
 /*  bottom: 2%; /* Move up from bottom to center in bottom section */
 /*  right: 0%; /* Move left from right to center horizontally */
@@ -365,8 +369,8 @@ body, .container, .main, .content {
 .purpose-title {
     font-size: clamp(1rem, 2.5vw, 10rem); /* min, preferred, max */
     text-align: center; /* Center horizontally */
-    margin-top: 1%;
-    margin-bottom: 28px; /* Push down to middle-upper area of background image */
+    margin-top: 6vh; /* Add some top margin for spacing */
+    margin-bottom: 2vh; /* Push down to middle-upper area of background image */
     color: #3369ff; /* White color for contrast */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Subtle shadow for readability */
     font-weight: bold; /* Make title bold */
@@ -383,14 +387,14 @@ body, .container, .main, .content {
 
 /* Paragraph styling - auto scaling */
 .purpose-text {
-    font-size: clamp(1rem, 1.2vw, 3rem); /* min, preferred, max */
+    font-size: clamp(1rem, 1vw, 3rem); /* min, preferred, max */
     text-align: left; /* Left horizontally */
     max-width: 100%; /* Limit width for readability */
-    margin: 0 auto 30 auto; /* top, right, bottom, left */
-    padding: 0 80px; /* left and right 40px */
+    margin: 0 auto 30px auto; /* top, right, bottom, left */
+    padding: 0 5vw; /* left and right 5vw */
     color: #3369ff; /* White color for contrast */
     text-shadow: 1px 1px 2px rgba(0,0,0,0.6); /* Subtle shadow for readability */
-    font-weight: 400; /* Normal weight for body text */
+    font-weight: 600; /* Normal weight for body text */
     z-index: 1; /* Ensure it is above the background image */
 }
 
@@ -431,7 +435,7 @@ body, .container, .main, .content {
 
 .team_members-bg {
     position: absolute; /* Positioned inside the content area */
-    top: 25px; /* Align to top of content area */
+    top: 2vh; /* Align to top of content area */
     left: 0; /* Align to left of content area */
 /*  bottom: 2%; /* Move up from bottom to center in bottom section */
 /*  right: 0%; /* Move left from right to center horizontally */
@@ -456,8 +460,8 @@ body, .container, .main, .content {
 .team_members-title {
     font-size: clamp(1rem, 2.5vw, 10rem); /* min, preferred, max */
     text-align: center; /* Center horizontally */
-    margin-top: 1%;
-    margin-bottom: 90px; /* Push down to middle-upper area of background image */
+    margin-top: 8vh;
+    margin-bottom: 6vh; /* Push down to middle-upper area of background image */
     color: #3369ff; /* White color for contrast */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Subtle shadow for readability */
     font-weight: bold; /* Make title bold */
@@ -478,8 +482,10 @@ body, .container, .main, .content {
     text-align: center; /* Center horizontally */
     max-width: 100%; /* Limit width for readability */
     margin: 0 auto 30 auto; /* top, right, bottom, left */
-    margin-right: 10px; 
-    padding: 0 120px 0 150px; /* top right bottom left */
+    margin-right: 3vw; 
+    margin-top: 10vh;
+    padding: 0 2vw 0 9vw; /* top right bottom left */
+    padding-left: 10vw;
     color: #3369ff; /* White color for contrast */
     text-shadow: 1px 1px 2px rgba(0,0,0,0.6); /* Subtle shadow for readability */
     font-weight: 600; /* Normal weight for body text */
@@ -498,3 +504,7 @@ body, .container, .main, .content {
     object-fit: cover;
     object-position: 50% 60%; /* Center horizontally and slightly lower vertically */
 }
+
+
+
+
