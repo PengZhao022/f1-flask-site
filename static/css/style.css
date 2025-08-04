@@ -304,7 +304,7 @@ body, .container, .main, .content {
 
 /* Paragraph styling - auto scaling */
 .about-f1-text {
-    font-size: clamp(1rem, 1.2vw, 3rem); /* min, preferred, max */
+    font-size: clamp(1rem, 1.5vw, 3rem); /* min, preferred, max */
     text-align: left; /* Left horizontally */
     max-width: 100%; /* Limit width for readability */
     padding: 0 160px; /* left and right 40px */
@@ -387,7 +387,7 @@ body, .container, .main, .content {
 
 /* Paragraph styling - auto scaling */
 .purpose-text {
-    font-size: clamp(1rem, 1vw, 3rem); /* min, preferred, max */
+    font-size: clamp(1rem, 1.5vw, 3rem); /* min, preferred, max */
     text-align: left; /* Left horizontally */
     max-width: 100%; /* Limit width for readability */
     margin: 0 auto 30px auto; /* top, right, bottom, left */
@@ -504,7 +504,5 @@ body, .container, .main, .content {
     object-fit: cover;
     object-position: 50% 60%; /* Center horizontally and slightly lower vertically */
 }
-
-
 
 
