@@ -556,7 +556,44 @@ body, .container, .main, .content {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 60%; /* Center horizontally and slightly lower vertically */
+    object-position: 50% 50%; /* Center horizontally and slightly lower vertically */
+}
+
+/* =======================
+   Test new team members style
+   ======================= */
+
+/* Container for all team members */
+.team-members-container {
+    display: flex;
+    justify-content: space-around;  /* Align members horizontally with equal space */
+    align-items: center;  /* Vertically center the members */
+    gap: 0.5vw; /* Space between members */
+    flex-wrap: wrap;  /* Allow wrapping on smaller screens */
+    margin-top: 30px;
+}
+
+/* Individual team member */
+.team-member {
+    text-align: center;  /* Center-align avatar and name */
+    margin: 20px;  /* Add some margin between members */
+}
+
+/* Avatar image */
+.team-member-avatar {
+    width: 200px;  /* Set the size of the avatar */
+    height: 200px;  /* Ensure the avatar is square */
+    border-radius: 50%;  /* Make the avatar circular */
+    object-fit: cover;  /* Ensure the image fits inside the circle */
+    margin-bottom: 50px;  /* Space between avatar and name */
+}
+
+/* Name styling */
+.team-member-name {
+    font-size: 1.6rem;  /* Adjust the font size */
+    color: #3369ff;  /* Set the text color */
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);  /* Add subtle shadow for readability */
 }
 
 /* =======================

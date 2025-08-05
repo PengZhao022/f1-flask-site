@@ -1,12 +1,28 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
 <h2 class="team_members-title">Team Members</h2>
 
-<span class="team_members-text">Rob&nbsp;Horrobin</span>
-<span class="team_members-text">Peng&nbsp;Zhao</span>
-<span class="team_members-text">Hrishi&nbsp;Ingale</span>
+<!-- Container for team members -->
+<div class="team-members-container">
+    <!-- Member 1 -->
+    <div class="team-member">
+        <img src="{{ url_for('static', filename='img/h.jpg') }}" alt="Hrishi Ingale" class="team-member-avatar">
+        <p class="team-member-name">Hrishi Ingale</p>
+    </div>
+
+    <!-- Member 2 -->
+    <div class="team-member">
+        <img src="{{ url_for('static', filename='img/r.jpg') }}" alt="Rob Horrobin" class="team-member-avatar">
+        <p class="team-member-name">Rob Horrobin</p>
+    </div>
+
+    <!-- Member 3 -->
+    <div class="team-member">
+        <img src="{{ url_for('static', filename='img/p.jpg') }}" alt="Peng Zhao" class="team-member-avatar">
+        <p class="team-member-name">Peng Zhao</p>
+    </div>
+</div>
 
 <!-- Background image container for Team Members -->
 <div class="team_members-bg">
